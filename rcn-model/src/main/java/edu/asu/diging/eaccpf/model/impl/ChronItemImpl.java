@@ -20,7 +20,7 @@ public class ChronItemImpl implements ChronItem {
     @GeneratedValue(generator = "chronItem_id_generator")
     @GenericGenerator(name = "chronItem_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "CI"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     private String localType;

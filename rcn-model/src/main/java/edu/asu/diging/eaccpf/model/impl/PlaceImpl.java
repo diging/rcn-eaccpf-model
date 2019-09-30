@@ -29,7 +29,7 @@ public class PlaceImpl implements Place {
     @GeneratedValue(generator = "place_id_generator")
     @GenericGenerator(name = "place_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "PL"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

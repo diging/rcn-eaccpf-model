@@ -16,7 +16,7 @@ public class ComponentEntryImpl implements ComponentEntry {
     @GeneratedValue(generator = "compEntry_id_generator")
     @GenericGenerator(name = "compEntry_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "CEN"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

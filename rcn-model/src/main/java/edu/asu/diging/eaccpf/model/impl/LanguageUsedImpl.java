@@ -19,7 +19,7 @@ public class LanguageUsedImpl implements LanguageUsed {
     @GeneratedValue(generator = "langUsed_id_generator")
     @GenericGenerator(name = "langUsed_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "LU"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

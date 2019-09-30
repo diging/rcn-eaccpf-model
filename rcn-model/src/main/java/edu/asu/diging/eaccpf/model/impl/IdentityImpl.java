@@ -27,14 +27,14 @@ public class IdentityImpl implements Identity {
     @GeneratedValue(generator = "identity_id_generator")
     @GenericGenerator(name = "identity_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "ID"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     
     private String localType;
     private String identityType;
     
-    @OneToOne(targetEntity=EntityIdImpl.class, mappedBy="identity", cascade=CascadeType.ALL, orphanRemoval=true)
+    @OneToOne(targetEntity=EntityIdImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private EntityId entityId;
     
     @Enumerated(EnumType.STRING)

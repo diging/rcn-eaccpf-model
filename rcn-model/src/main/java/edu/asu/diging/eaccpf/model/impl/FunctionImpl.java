@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -20,13 +21,14 @@ import edu.asu.diging.eaccpf.model.Function;
 import edu.asu.diging.eaccpf.model.PlaceEntry;
 import edu.asu.diging.eaccpf.model.Term;
 
+@Entity
 public class FunctionImpl implements Function {
 
     @Id
     @GeneratedValue(generator = "func_id_generator")
     @GenericGenerator(name = "func_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "FU"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

@@ -26,7 +26,7 @@ public class FunctionRelationImpl implements FunctionRelation {
     @GeneratedValue(generator = "cpfRelation_id_generator")
     @GenericGenerator(name = "cpfRelation_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "CPFR"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

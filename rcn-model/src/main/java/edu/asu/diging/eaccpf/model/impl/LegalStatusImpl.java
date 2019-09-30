@@ -28,7 +28,7 @@ public class LegalStatusImpl implements LegalStatus {
     @GeneratedValue(generator = "legalStat_id_generator")
     @GenericGenerator(name = "legalStat_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "LS"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

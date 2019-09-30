@@ -3,6 +3,7 @@ package edu.asu.diging.eaccpf.model.impl;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -13,13 +14,14 @@ import org.hibernate.annotations.Parameter;
 import edu.asu.diging.eaccpf.model.NameEntry;
 import edu.asu.diging.eaccpf.model.NameEntryParallel;
 
+@Entity
 public class NameEntryParallelImpl implements NameEntryParallel {
 
     @Id
     @GeneratedValue(generator = "nameEntryPar_id_generator")
     @GenericGenerator(name = "nameEntryPar_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "NP"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

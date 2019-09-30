@@ -1,7 +1,10 @@
 package edu.asu.diging.eaccpf.model.impl;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -9,13 +12,14 @@ import org.hibernate.annotations.Parameter;
 import edu.asu.diging.eaccpf.model.DateTime;
 import edu.asu.diging.eaccpf.model.MaintenanceEvent;
 
+@Entity
 public class MaintenanceEventImpl implements MaintenanceEvent {
 
     @Id
     @GeneratedValue(generator = "mainEvent_id_generator")
     @GenericGenerator(name = "mainEvent_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "ME"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     
@@ -23,6 +27,8 @@ public class MaintenanceEventImpl implements MaintenanceEvent {
     private String agentType;
     private String eventType;
     private String eventDescription;
+    
+    @OneToOne(targetEntity=DateTimeImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private DateTime eventDateTime;
     
     /* (non-Javadoc)

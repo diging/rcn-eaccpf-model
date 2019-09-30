@@ -22,7 +22,7 @@ public class DateSetImpl implements DateSet {
     @GeneratedValue(generator = "dateset_id_generator")
     @GenericGenerator(name = "dateset_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "DS"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     private String localType;

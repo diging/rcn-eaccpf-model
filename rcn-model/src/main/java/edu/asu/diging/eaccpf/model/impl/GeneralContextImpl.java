@@ -25,7 +25,7 @@ public class GeneralContextImpl implements GeneralContext {
     @GeneratedValue(generator = "genCon_id_generator")
     @GenericGenerator(name = "genCon_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "GC"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator")
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator")
             
     private String id;
     

@@ -8,7 +8,6 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import edu.asu.diging.eaccpf.model.EntityId;
-import edu.asu.diging.eaccpf.model.Identity;
 
 @Entity
 public class EntityIdImpl implements EntityId {
@@ -17,14 +16,13 @@ public class EntityIdImpl implements EntityId {
     @GeneratedValue(generator = "entityId_id_generator")
     @GenericGenerator(name = "entityId_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "EI"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     
     private String localType;
     private String entityId;
     
-    private Identity identity;
     
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.EntityId#getId()
@@ -67,13 +65,6 @@ public class EntityIdImpl implements EntityId {
     @Override
     public void setEntityId(String entityId) {
         this.entityId = entityId;
-    }
-    public Identity getIdentity() {
-        return identity;
-    }
-    public void setIdentity(Identity identity) {
-        this.identity = identity;
-    }
-    
+    }    
     
 }

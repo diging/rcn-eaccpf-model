@@ -19,7 +19,7 @@ public class RightsDeclarationImpl implements RightsDeclaration {
     @GeneratedValue(generator = "rights_id_generator")
     @GenericGenerator(name = "rights_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "RI"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

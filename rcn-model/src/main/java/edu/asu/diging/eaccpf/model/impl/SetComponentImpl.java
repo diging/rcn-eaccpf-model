@@ -22,7 +22,7 @@ public class SetComponentImpl implements SetComponent {
     @GeneratedValue(generator = "setComp_id_generator")
     @GenericGenerator(name = "setComp_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "SET"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

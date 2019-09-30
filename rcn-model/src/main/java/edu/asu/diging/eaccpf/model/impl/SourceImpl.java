@@ -22,7 +22,7 @@ public class SourceImpl implements Source {
     @GeneratedValue(generator = "source_id_generator")
     @GenericGenerator(name = "source_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "SR"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

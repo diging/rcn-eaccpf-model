@@ -26,7 +26,7 @@ public class LocalDescriptionsImpl implements LocalDescriptions {
     @GeneratedValue(generator = "localDescs_id_generator")
     @GenericGenerator(name = "localDescs_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "LDS"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

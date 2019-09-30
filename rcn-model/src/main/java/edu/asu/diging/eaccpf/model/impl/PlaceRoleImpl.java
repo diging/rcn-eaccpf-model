@@ -16,7 +16,7 @@ public class PlaceRoleImpl implements PlaceRole {
     @GeneratedValue(generator = "placeRole_id_generator")
     @GenericGenerator(name = "placeRole_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "PR"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

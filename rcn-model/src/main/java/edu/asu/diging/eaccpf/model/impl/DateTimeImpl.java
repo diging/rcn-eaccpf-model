@@ -16,7 +16,7 @@ public class DateTimeImpl implements DateTime {
     @GeneratedValue(generator = "datetime_id_generator")
     @GenericGenerator(name = "datetime_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "DT"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

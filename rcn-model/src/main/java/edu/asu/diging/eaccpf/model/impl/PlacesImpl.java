@@ -26,7 +26,7 @@ public class PlacesImpl implements Places {
     @GeneratedValue(generator = "places_id_generator")
     @GenericGenerator(name = "places_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "PLS"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

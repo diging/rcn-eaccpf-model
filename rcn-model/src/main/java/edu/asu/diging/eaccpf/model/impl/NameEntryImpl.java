@@ -23,7 +23,7 @@ public class NameEntryImpl implements NameEntry {
     @GeneratedValue(generator = "nameEntry_id_generator")
     @GenericGenerator(name = "nameEntry_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "NE"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

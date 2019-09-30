@@ -16,7 +16,7 @@ public class CitationImpl implements Citation {
     @GeneratedValue(generator = "citation_id_generator")
     @GenericGenerator(name = "citation_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "CI"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

@@ -17,7 +17,7 @@ public class ConventionDeclarationImpl implements ConventionDeclaration {
 
     @Id
     @GeneratedValue(generator = "conDecl_id_generator")
-    @GenericGenerator(name = "conDecl_id_generator", parameters = @Parameter(name = "prefix", value = "CD"), strategy = "edu.asu.diging.rcn.core.data.IdGenerator")
+    @GenericGenerator(name = "conDecl_id_generator", parameters = @Parameter(name = "prefix", value = "CD"), strategy = "edu.asu.diging.eaccpf.data.IdGenerator")
     private String id;
 
     private String abbreviation;

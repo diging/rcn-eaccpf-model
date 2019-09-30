@@ -24,7 +24,7 @@ public class ExistDatesImpl implements ExistDates {
     @GeneratedValue(generator = "desc_id_generator")
     @GenericGenerator(name = "desc_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "DE"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

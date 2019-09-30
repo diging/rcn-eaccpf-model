@@ -33,23 +33,23 @@ public class RecordImpl implements Record {
     @GeneratedValue(generator = "record_id_generator")
     @GenericGenerator(name = "record_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "RE"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     
     @OneToMany(targetEntity=ConventionDeclarationImpl.class)
     private List<ConventionDeclaration> conventionDeclarations;
     
-    @OneToOne(targetEntity=LanguageDeclarationImpl.class, mappedBy="record")
+    @OneToOne(targetEntity=LanguageDeclarationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private LanguageDeclaration languageDeclaration;
     
-    @OneToMany(targetEntity=LocalTypeDeclarationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true, mappedBy="record")
+    @OneToMany(targetEntity=LocalTypeDeclarationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<LocalTypeDeclaration> localTypeDeclarations;
     
     @OneToMany(targetEntity=LocalControlImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<LocalControl> localControls;
     
-    @OneToOne(targetEntity=MaintenanceAgencyImpl.class, mappedBy="record")
+    @OneToOne(targetEntity=MaintenanceAgencyImpl.class)
     private MaintenanceAgency maintenanceAgency;
     
     private String maintenanceStatus;

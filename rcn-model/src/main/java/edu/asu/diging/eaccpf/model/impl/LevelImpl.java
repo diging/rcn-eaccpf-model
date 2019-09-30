@@ -3,6 +3,7 @@ package edu.asu.diging.eaccpf.model.impl;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -13,13 +14,14 @@ import org.hibernate.annotations.Parameter;
 import edu.asu.diging.eaccpf.model.Item;
 import edu.asu.diging.eaccpf.model.Level;
 
+@Entity
 public class LevelImpl implements Level {
 
     @Id
     @GeneratedValue(generator = "level_id_generator")
     @GenericGenerator(name = "level_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "LE"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

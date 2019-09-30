@@ -16,7 +16,7 @@ public class ItemImpl implements Item {
     @GeneratedValue(generator = "item_id_generator")
     @GenericGenerator(name = "item_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "IT"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

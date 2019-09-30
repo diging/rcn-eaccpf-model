@@ -17,9 +17,4 @@ public interface MaintenanceAgency {
     String getDescriptiveNote();
 
     void setDescriptiveNote(String descriptiveNote);
-
-    Record getRecord();
-
-    void setRecord(Record record);
-
 }

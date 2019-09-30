@@ -16,7 +16,7 @@ public class SourceEntryImpl implements SourceEntry {
     @GeneratedValue(generator = "sourceEntry_id_generator")
     @GenericGenerator(name = "sourceEntry_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "SEN"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

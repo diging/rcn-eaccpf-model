@@ -16,7 +16,7 @@ public class DateImpl implements Date {
     @GeneratedValue(generator = "date_id_generator")
     @GenericGenerator(name = "date_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "DA"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

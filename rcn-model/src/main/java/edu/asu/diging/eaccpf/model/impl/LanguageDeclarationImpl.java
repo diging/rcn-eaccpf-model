@@ -8,7 +8,6 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import edu.asu.diging.eaccpf.model.LanguageDeclaration;
-import edu.asu.diging.eaccpf.model.Record;
 
 @Entity
 public class LanguageDeclarationImpl implements LanguageDeclaration {
@@ -17,7 +16,7 @@ public class LanguageDeclarationImpl implements LanguageDeclaration {
     @GeneratedValue(generator = "lang_id_generator")
     @GenericGenerator(name = "lang_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "LA"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     
@@ -25,8 +24,6 @@ public class LanguageDeclarationImpl implements LanguageDeclaration {
     private String languageCode;
     private String script;
     private String scriptCode;
-    
-    private Record record;
     
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.LanguageDeclaration#getId()
@@ -97,20 +94,5 @@ public class LanguageDeclarationImpl implements LanguageDeclaration {
     @Override
     public void setScriptCode(String scriptCode) {
         this.scriptCode = scriptCode;
-    }
-    /* (non-Javadoc)
-     * @see edu.asu.diging.rcn.core.model.impl.LanguageDeclaration#getRecord()
-     */
-    @Override
-    public Record getRecord() {
-        return record;
-    }
-    /* (non-Javadoc)
-     * @see edu.asu.diging.rcn.core.model.impl.LanguageDeclaration#setRecord(edu.asu.diging.rcn.core.model.impl.RecordImpl)
-     */
-    @Override
-    public void setRecord(Record record) {
-        this.record = record;
-    }
-    
+    }   
 }

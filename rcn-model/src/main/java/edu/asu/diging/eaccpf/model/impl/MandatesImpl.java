@@ -26,7 +26,7 @@ public class MandatesImpl implements Mandates {
     @GeneratedValue(generator = "mandates_id_generator")
     @GenericGenerator(name = "mandates_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "MAS"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

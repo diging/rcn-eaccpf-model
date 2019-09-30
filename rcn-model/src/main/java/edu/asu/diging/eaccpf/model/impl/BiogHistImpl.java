@@ -27,7 +27,7 @@ public class BiogHistImpl implements BiogHist {
     @GeneratedValue(generator = "bioHist_id_generator")
     @GenericGenerator(name = "bioHist_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "BH"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

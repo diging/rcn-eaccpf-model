@@ -8,7 +8,6 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import edu.asu.diging.eaccpf.model.MaintenanceAgency;
-import edu.asu.diging.eaccpf.model.Record;
 
 @Entity
 public class MaintenanceAgencyImpl implements MaintenanceAgency {
@@ -17,13 +16,12 @@ public class MaintenanceAgencyImpl implements MaintenanceAgency {
     @GeneratedValue(generator = "agency_id_generator")
     @GenericGenerator(name = "agency_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "AG"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     private String name;
     private String code;
     private String descriptiveNote;
-    private Record record;
     
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.MaintenanceAgency#getId()
@@ -80,19 +78,5 @@ public class MaintenanceAgencyImpl implements MaintenanceAgency {
     @Override
     public void setDescriptiveNote(String descriptiveNote) {
         this.descriptiveNote = descriptiveNote;
-    }
-    /* (non-Javadoc)
-     * @see edu.asu.diging.rcn.core.model.impl.MaintenanceAgency#getRecord()
-     */
-    @Override
-    public Record getRecord() {
-        return record;
-    }
-    /* (non-Javadoc)
-     * @see edu.asu.diging.rcn.core.model.impl.MaintenanceAgency#setRecord(edu.asu.diging.rcn.core.model.impl.RecordImpl)
-     */
-    @Override
-    public void setRecord(Record record) {
-        this.record = record;
     }
 }

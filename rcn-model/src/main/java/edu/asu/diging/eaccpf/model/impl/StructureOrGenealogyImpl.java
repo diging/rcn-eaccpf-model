@@ -25,7 +25,7 @@ public class StructureOrGenealogyImpl implements StructureOrGenealogy {
     @GeneratedValue(generator = "strGen_id_generator")
     @GenericGenerator(name = "strGen_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "SOG"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

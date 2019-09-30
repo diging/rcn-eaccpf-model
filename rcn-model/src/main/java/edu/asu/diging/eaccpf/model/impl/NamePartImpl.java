@@ -1,5 +1,6 @@
 package edu.asu.diging.eaccpf.model.impl;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -8,13 +9,14 @@ import org.hibernate.annotations.Parameter;
 
 import edu.asu.diging.eaccpf.model.NamePart;
 
+@Entity
 public class NamePartImpl implements NamePart {
 
     @Id
     @GeneratedValue(generator = "nameEntry_id_generator")
     @GenericGenerator(name = "nameEntry_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "NE"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

@@ -28,7 +28,7 @@ public class OccupationImpl implements Occupation {
     @GeneratedValue(generator = "occu_id_generator")
     @GenericGenerator(name = "occu_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "OC"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

@@ -26,7 +26,7 @@ public class FunctionsImpl implements Functions {
     @GeneratedValue(generator = "funcs_id_generator")
     @GenericGenerator(name = "funcs_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "FS"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

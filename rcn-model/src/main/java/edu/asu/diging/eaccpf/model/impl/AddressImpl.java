@@ -21,7 +21,7 @@ public class AddressImpl implements Address {
     @GeneratedValue(generator = "address_id_generator")
     @GenericGenerator(name = "address_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "AD"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

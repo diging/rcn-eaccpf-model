@@ -21,9 +21,4 @@ public interface LanguageDeclaration {
     String getScriptCode();
 
     void setScriptCode(String scriptCode);
-
-    Record getRecord();
-
-    void setRecord(Record record);
-
 }

@@ -16,7 +16,7 @@ public class TermImpl implements Term {
     @GeneratedValue(generator = "term_id_generator")
     @GenericGenerator(name = "term_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "TE"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

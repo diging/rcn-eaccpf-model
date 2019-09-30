@@ -16,7 +16,7 @@ public class AddressLineImpl implements AddressLine {
     @GeneratedValue(generator = "addressline_id_generator")
     @GenericGenerator(name = "addressline_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "ADL"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

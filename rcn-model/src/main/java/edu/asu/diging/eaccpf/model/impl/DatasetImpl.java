@@ -20,7 +20,7 @@ public class DatasetImpl implements Dataset {
     @GeneratedValue(generator = "dataset_id_generator")
     @GenericGenerator(name = "dataset_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "DAS"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     

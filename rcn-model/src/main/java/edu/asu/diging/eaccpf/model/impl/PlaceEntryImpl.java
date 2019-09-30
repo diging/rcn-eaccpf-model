@@ -16,7 +16,7 @@ public class PlaceEntryImpl implements PlaceEntry {
     @GeneratedValue(generator = "placeEntry_id_generator")
     @GenericGenerator(name = "placeEntry_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "PE"), 
-                    strategy = "edu.asu.diging.rcn.core.data.IdGenerator"
+                    strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     
