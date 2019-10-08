@@ -24,8 +24,12 @@ public class DatasetImpl implements Dataset {
             )
     private String id;
     
+    private String title;
+    
+    private String description;
+    
     @OneToMany(targetEntity=RecordImpl.class)
-    private List<Record> functions;
+    private List<Record> records;
 
     /* (non-Javadoc)
      * @see edu.asu.diging.eaccpf.model.impl.Dataset#getId()
@@ -43,20 +47,40 @@ public class DatasetImpl implements Dataset {
         this.id = id;
     }
 
+    @Override
+    public String getTitle() {
+        return title;
+    }
+
+    @Override
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     /* (non-Javadoc)
      * @see edu.asu.diging.eaccpf.model.impl.Dataset#getFunctions()
      */
     @Override
-    public List<Record> getFunctions() {
-        return functions;
+    public List<Record> getRecords() {
+        return records;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.eaccpf.model.impl.Dataset#setFunctions(java.util.List)
      */
     @Override
-    public void setFunctions(List<Record> functions) {
-        this.functions = functions;
+    public void setRecords(List<Record> records) {
+        this.records = records;
     }
     
 }

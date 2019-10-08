@@ -8,8 +8,16 @@ public interface Dataset {
 
     void setId(String id);
 
-    List<Record> getFunctions();
+    List<Record> getRecords();
 
-    void setFunctions(List<Record> functions);
+    void setRecords(List<Record> records);
+
+    void setDescription(String description);
+
+    String getDescription();
+
+    void setTitle(String title);
+
+    String getTitle();
 
 }
