@@ -3,6 +3,7 @@ package edu.asu.diging.eaccpf.model.impl;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -37,7 +38,7 @@ public class RecordImpl implements Record {
             )
     private String id;
     
-    @OneToMany(targetEntity=ConventionDeclarationImpl.class)
+    @OneToMany(targetEntity=ConventionDeclarationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<ConventionDeclaration> conventionDeclarations;
     
     @OneToOne(targetEntity=LanguageDeclarationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
