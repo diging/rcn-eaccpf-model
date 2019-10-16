@@ -7,6 +7,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -28,6 +29,7 @@ public class LanguagesUsedImpl implements LanguagesUsed {
     private String localType;
     
     @ElementCollection
+    @Lob
     private List<String> descriptiveNote;
     
     @OneToMany(targetEntity=LanguageUsedImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)

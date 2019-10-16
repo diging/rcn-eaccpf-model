@@ -7,6 +7,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -35,7 +36,9 @@ public class FunctionsImpl implements Functions {
     @OneToMany(targetEntity=CitationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Citation> citations;
     
-    private String descriptiveNote;
+    @Lob
+    @ElementCollection
+    private List<String> descriptiveNote;
     
     @OneToMany(targetEntity=FunctionImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Function> functions;
@@ -101,7 +104,7 @@ public class FunctionsImpl implements Functions {
      * @see edu.asu.diging.rcn.core.model.impl.Functions#getDescriptiveNote()
      */
     @Override
-    public String getDescriptiveNote() {
+    public List<String> getDescriptiveNote() {
         return descriptiveNote;
     }
 
@@ -109,7 +112,7 @@ public class FunctionsImpl implements Functions {
      * @see edu.asu.diging.rcn.core.model.impl.Functions#setDescriptiveNote(java.lang.String)
      */
     @Override
-    public void setDescriptiveNote(String descriptiveNote) {
+    public void setDescriptiveNote(List<String> descriptiveNote) {
         this.descriptiveNote = descriptiveNote;
     }
 

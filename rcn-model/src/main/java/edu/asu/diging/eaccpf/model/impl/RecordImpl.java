@@ -3,7 +3,6 @@ package edu.asu.diging.eaccpf.model.impl;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -41,8 +40,8 @@ public class RecordImpl implements Record {
     @OneToMany(targetEntity=ConventionDeclarationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<ConventionDeclaration> conventionDeclarations;
     
-    @OneToOne(targetEntity=LanguageDeclarationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private LanguageDeclaration languageDeclaration;
+    @OneToMany(targetEntity=LanguageDeclarationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<LanguageDeclaration> languageDeclarations;
     
     @OneToMany(targetEntity=LocalTypeDeclarationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<LocalTypeDeclaration> localTypeDeclarations;
@@ -50,7 +49,7 @@ public class RecordImpl implements Record {
     @OneToMany(targetEntity=LocalControlImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<LocalControl> localControls;
     
-    @OneToOne(targetEntity=MaintenanceAgencyImpl.class)
+    @OneToOne(targetEntity=MaintenanceAgencyImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private MaintenanceAgency maintenanceAgency;
     
     private String maintenanceStatus;
@@ -64,8 +63,8 @@ public class RecordImpl implements Record {
     
     private String recordId;
     
-    @OneToOne(targetEntity=RightsDeclarationImpl.class)
-    private RightsDeclaration rightsDeclaration;
+    @OneToMany(targetEntity=RightsDeclarationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<RightsDeclaration> rightsDeclarations;
     
     @OneToMany(targetEntity=SourceImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Source> sources;
@@ -118,16 +117,16 @@ public class RecordImpl implements Record {
      * @see edu.asu.diging.eaccpf.model.impl.Record#getLanguageDeclaration()
      */
     @Override
-    public LanguageDeclaration getLanguageDeclaration() {
-        return languageDeclaration;
+    public List<LanguageDeclaration> getLanguageDeclarations() {
+        return languageDeclarations;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.eaccpf.model.impl.Record#setLanguageDeclaration(edu.asu.diging.eaccpf.model.LanguageDeclaration)
      */
     @Override
-    public void setLanguageDeclaration(LanguageDeclaration languageDeclaration) {
-        this.languageDeclaration = languageDeclaration;
+    public void setLanguageDeclarations(List<LanguageDeclaration> languageDeclarations) {
+        this.languageDeclarations = languageDeclarations;
     }
 
     /* (non-Javadoc)
@@ -262,16 +261,16 @@ public class RecordImpl implements Record {
      * @see edu.asu.diging.eaccpf.model.impl.Record#getRightsDeclaration()
      */
     @Override
-    public RightsDeclaration getRightsDeclaration() {
-        return rightsDeclaration;
+    public List<RightsDeclaration> getRightsDeclarations() {
+        return rightsDeclarations;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.eaccpf.model.impl.Record#setRightsDeclaration(edu.asu.diging.eaccpf.model.RightsDeclaration)
      */
     @Override
-    public void setRightsDeclaration(RightsDeclaration rightsDeclaration) {
-        this.rightsDeclaration = rightsDeclaration;
+    public void setRightsDeclarations(List<RightsDeclaration> rightsDeclarations) {
+        this.rightsDeclarations = rightsDeclarations;
     }
 
     /* (non-Javadoc)

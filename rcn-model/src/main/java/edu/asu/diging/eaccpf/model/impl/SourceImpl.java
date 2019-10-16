@@ -7,6 +7,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -29,6 +30,7 @@ public class SourceImpl implements Source {
     private String lastDateTimeVerified;
 
     @ElementCollection
+    @Lob
     private List<String> descriptiveNote;
     
     @OneToMany(targetEntity=SourceEntryImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
@@ -50,26 +52,32 @@ public class SourceImpl implements Source {
         this.id = id;
     }
     
+    @Override
     public String getLastDateTimeVerified() {
         return lastDateTimeVerified;
     }
 
+    @Override
     public void setLastDateTimeVerified(String lastDateTimeVerified) {
         this.lastDateTimeVerified = lastDateTimeVerified;
     }
 
+    @Override
     public List<String> getDescriptiveNote() {
         return descriptiveNote;
     }
 
+    @Override
     public void setDescriptiveNote(List<String> descriptiveNote) {
         this.descriptiveNote = descriptiveNote;
     }
 
+    @Override
     public List<SourceEntry> getRelationEntries() {
         return relationEntries;
     }
 
+    @Override
     public void setRelationEntries(List<SourceEntry> relationEntries) {
         this.relationEntries = relationEntries;
     }

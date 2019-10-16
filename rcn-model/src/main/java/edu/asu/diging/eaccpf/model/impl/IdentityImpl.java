@@ -3,11 +3,13 @@ package edu.asu.diging.eaccpf.model.impl;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -40,7 +42,9 @@ public class IdentityImpl implements Identity {
     @Enumerated(EnumType.STRING)
     private EntityType entityType;
     
-    private String descriptiveNote;
+    @ElementCollection
+    @Lob
+    private List<String> descriptiveNote;
     
     @OneToMany(targetEntity=NameEntryImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<NameEntry> nameEntries;
@@ -132,7 +136,7 @@ public class IdentityImpl implements Identity {
      * @see edu.asu.diging.rcn.core.model.impl.Identity#getDescriptiveNote()
      */
     @Override
-    public String getDescriptiveNote() {
+    public List<String> getDescriptiveNote() {
         return descriptiveNote;
     }
 
@@ -140,7 +144,7 @@ public class IdentityImpl implements Identity {
      * @see edu.asu.diging.rcn.core.model.impl.Identity#setDescriptiveNote(java.lang.String)
      */
     @Override
-    public void setDescriptiveNote(String descriptiveNote) {
+    public void setDescriptiveNote(List<String> descriptiveNote) {
         this.descriptiveNote = descriptiveNote;
     }
 

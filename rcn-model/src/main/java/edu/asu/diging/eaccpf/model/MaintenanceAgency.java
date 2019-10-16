@@ -1,5 +1,7 @@
 package edu.asu.diging.eaccpf.model;
 
+import java.util.List;
+
 public interface MaintenanceAgency {
 
     String getId();
@@ -14,7 +16,11 @@ public interface MaintenanceAgency {
 
     void setCode(String code);
 
-    String getDescriptiveNote();
+    List<String> getDescriptiveNote();
 
-    void setDescriptiveNote(String descriptiveNote);
+    void setDescriptiveNote(List<String> descriptiveNote);
+
+    void setOtherAgencyCode(String otherAgencyCode);
+
+    String getOtherAgencyCode();
 }

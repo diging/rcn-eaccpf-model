@@ -1,5 +1,7 @@
 package edu.asu.diging.eaccpf.model;
 
+import java.util.List;
+
 public interface LocalControl {
 
     String getId();
@@ -10,9 +12,9 @@ public interface LocalControl {
 
     void setDate(String date);
 
-    DateRange getDateRange();
+    List<DateRange> getDateRanges();
 
-    void setDateRange(DateRange dateRange);
+    void setDateRanges(List<DateRange> dateRange);
 
     String getTerm();
 

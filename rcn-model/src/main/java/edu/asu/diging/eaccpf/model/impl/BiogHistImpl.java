@@ -7,6 +7,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -34,6 +35,7 @@ public class BiogHistImpl implements BiogHist {
     private String localType;
     
     @ElementCollection
+    @Lob
     private List<String> ps;
     
     @OneToOne(targetEntity=AbstractImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)

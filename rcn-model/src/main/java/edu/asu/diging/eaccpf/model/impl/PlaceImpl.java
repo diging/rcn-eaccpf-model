@@ -7,6 +7,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -48,6 +49,7 @@ public class PlaceImpl implements Place {
     private DateSet dateSet;
     
     @ElementCollection
+    @Lob
     private List<String> descriptiveNote;
     
     @OneToMany(targetEntity=AddressImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)

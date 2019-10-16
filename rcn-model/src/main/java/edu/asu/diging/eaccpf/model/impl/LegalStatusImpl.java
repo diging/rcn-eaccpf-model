@@ -7,6 +7,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -47,6 +48,7 @@ public class LegalStatusImpl implements LegalStatus {
     private DateSet dateSet;
     
     @ElementCollection
+    @Lob
     private List<String> descriptiveNote;
     
     @OneToOne(targetEntity=PlaceEntryImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)

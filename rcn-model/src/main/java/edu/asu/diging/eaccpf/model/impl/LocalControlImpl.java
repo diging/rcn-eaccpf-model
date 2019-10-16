@@ -1,10 +1,12 @@
 package edu.asu.diging.eaccpf.model.impl;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -24,8 +26,8 @@ public class LocalControlImpl implements LocalControl {
     private String id;
     
     private String date;
-    @OneToOne(targetEntity=DateRangeImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private DateRange dateRange;
+    @OneToMany(targetEntity=DateRangeImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<DateRange> dateRanges;
     private String term;
     
     /* (non-Javadoc)
@@ -60,15 +62,15 @@ public class LocalControlImpl implements LocalControl {
      * @see edu.asu.diging.rcn.core.model.impl.LocalControl#getDateRange()
      */
     @Override
-    public DateRange getDateRange() {
-        return dateRange;
+    public List<DateRange> getDateRanges() {
+        return dateRanges;
     }
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.LocalControl#setDateRange(edu.asu.diging.rcn.core.model.DateRange)
      */
     @Override
-    public void setDateRange(DateRange dateRange) {
-        this.dateRange = dateRange;
+    public void setDateRanges(List<DateRange> dateRanges) {
+        this.dateRanges = dateRanges;
     }
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.LocalControl#getTerm()

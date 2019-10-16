@@ -1,5 +1,6 @@
 package edu.asu.diging.eaccpf.model;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 
 public interface Dataset {
@@ -19,5 +20,21 @@ public interface Dataset {
     void setTitle(String title);
 
     String getTitle();
+
+    void setModifiedBy(String modifiedBy);
+
+    String getModifiedBy();
+
+    void setModificationDate(OffsetDateTime modificationDate);
+
+    OffsetDateTime getModificationDate();
+
+    void setCreationDate(OffsetDateTime creationDate);
+
+    OffsetDateTime getCreationDate();
+
+    void setCreator(String creator);
+
+    String getCreator();
 
 }

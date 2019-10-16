@@ -1,8 +1,12 @@
 package edu.asu.diging.eaccpf.model.impl;
 
+import java.util.List;
+
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -21,7 +25,11 @@ public class MaintenanceAgencyImpl implements MaintenanceAgency {
     private String id;
     private String name;
     private String code;
-    private String descriptiveNote;
+    private String otherAgencyCode;
+    
+    @ElementCollection
+    @Lob
+    private List<String> descriptiveNote;
     
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.MaintenanceAgency#getId()
@@ -65,18 +73,26 @@ public class MaintenanceAgencyImpl implements MaintenanceAgency {
     public void setCode(String code) {
         this.code = code;
     }
+    @Override
+    public String getOtherAgencyCode() {
+        return otherAgencyCode;
+    }
+    @Override
+    public void setOtherAgencyCode(String otherAgencyCode) {
+        this.otherAgencyCode = otherAgencyCode;
+    }
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.MaintenanceAgency#getDescriptiveNote()
      */
     @Override
-    public String getDescriptiveNote() {
+    public List<String> getDescriptiveNote() {
         return descriptiveNote;
     }
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.MaintenanceAgency#setDescriptiveNote(java.lang.String)
      */
     @Override
-    public void setDescriptiveNote(String descriptiveNote) {
+    public void setDescriptiveNote(List<String> descriptiveNote) {
         this.descriptiveNote = descriptiveNote;
     }
 }

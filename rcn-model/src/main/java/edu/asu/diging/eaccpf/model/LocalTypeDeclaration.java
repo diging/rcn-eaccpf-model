@@ -1,5 +1,7 @@
 package edu.asu.diging.eaccpf.model;
 
+import java.util.List;
+
 public interface LocalTypeDeclaration {
 
     String getId();
@@ -14,8 +16,8 @@ public interface LocalTypeDeclaration {
 
     void setCitation(String citation);
 
-    String getDescriptiveNote();
+    List<String> getDescriptiveNote();
 
-    void setDescriptiveNote(String descriptiveNote);
+    void setDescriptiveNote(List<String> descriptiveNote);
 
 }

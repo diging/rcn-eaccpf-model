@@ -7,6 +7,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -41,6 +42,7 @@ public class StructureOrGenealogyImpl implements StructureOrGenealogy {
     private Outline outline;
     
     @ElementCollection
+    @Lob
     private List<String> ps;
 
     /* (non-Javadoc)

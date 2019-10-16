@@ -1,5 +1,7 @@
 package edu.asu.diging.eaccpf.model;
 
+import java.util.List;
+
 public interface MaintenanceEvent {
 
     String getId();
@@ -18,9 +20,9 @@ public interface MaintenanceEvent {
 
     void setEventType(String eventType);
 
-    String getEventDescription();
+    List<String> getEventDescription();
 
-    void setEventDescription(String eventDescription);
+    void setEventDescription(List<String> eventDescription);
 
     DateTime getEventDateTime();
 

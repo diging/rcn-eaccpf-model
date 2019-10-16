@@ -24,9 +24,9 @@ public interface Identity {
 
     void setEntityType(EntityType entityType);
 
-    String getDescriptiveNote();
+    List<String> getDescriptiveNote();
 
-    void setDescriptiveNote(String descriptiveNote);
+    void setDescriptiveNote(List<String> descriptiveNote);
 
     List<NameEntry> getNameEntries();
 

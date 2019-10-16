@@ -1,9 +1,13 @@
 package edu.asu.diging.eaccpf.model.impl;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -26,7 +30,10 @@ public class MaintenanceEventImpl implements MaintenanceEvent {
     private String agent;
     private String agentType;
     private String eventType;
-    private String eventDescription;
+    
+    @ElementCollection
+    @Lob
+    private List<String> eventDescription;
     
     @OneToOne(targetEntity=DateTimeImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private DateTime eventDateTime;
@@ -91,14 +98,14 @@ public class MaintenanceEventImpl implements MaintenanceEvent {
      * @see edu.asu.diging.rcn.core.model.impl.MaintenanceEvent#getEventDescription()
      */
     @Override
-    public String getEventDescription() {
+    public List<String> getEventDescription() {
         return eventDescription;
     }
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.MaintenanceEvent#setEventDescription(java.lang.String)
      */
     @Override
-    public void setEventDescription(String eventDescription) {
+    public void setEventDescription(List<String> eventDescription) {
         this.eventDescription = eventDescription;
     }
     /* (non-Javadoc)

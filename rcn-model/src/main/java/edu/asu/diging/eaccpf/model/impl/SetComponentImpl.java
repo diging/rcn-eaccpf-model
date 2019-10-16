@@ -7,6 +7,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -30,6 +31,7 @@ public class SetComponentImpl implements SetComponent {
     private String xlinkHref;
     
     @ElementCollection
+    @Lob
     private List<String> descriptiveNote;
     
     @OneToMany(targetEntity=ComponentEntryImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)

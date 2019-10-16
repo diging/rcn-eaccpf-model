@@ -1,5 +1,6 @@
 package edu.asu.diging.eaccpf.model.impl;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -27,6 +28,14 @@ public class DatasetImpl implements Dataset {
     private String title;
     
     private String description;
+    
+    private String creator;
+    
+    private OffsetDateTime creationDate;
+    
+    private OffsetDateTime modificationDate;
+    
+    private String modifiedBy;
     
     @OneToMany(targetEntity=RecordImpl.class)
     private List<Record> records;
@@ -65,6 +74,46 @@ public class DatasetImpl implements Dataset {
     @Override
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String getCreator() {
+        return creator;
+    }
+
+    @Override
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
+    @Override
+    public OffsetDateTime getCreationDate() {
+        return creationDate;
+    }
+
+    @Override
+    public void setCreationDate(OffsetDateTime creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    @Override
+    public OffsetDateTime getModificationDate() {
+        return modificationDate;
+    }
+
+    @Override
+    public void setModificationDate(OffsetDateTime modificationDate) {
+        this.modificationDate = modificationDate;
+    }
+
+    @Override
+    public String getModifiedBy() {
+        return modifiedBy;
+    }
+
+    @Override
+    public void setModifiedBy(String modifiedBy) {
+        this.modifiedBy = modifiedBy;
     }
 
     /* (non-Javadoc)

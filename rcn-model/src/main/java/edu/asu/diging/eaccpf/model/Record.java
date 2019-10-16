@@ -12,9 +12,9 @@ public interface Record {
 
     void setConventionDeclarations(List<ConventionDeclaration> conventionDeclarations);
 
-    LanguageDeclaration getLanguageDeclaration();
+    List<LanguageDeclaration> getLanguageDeclarations();
 
-    void setLanguageDeclaration(LanguageDeclaration languageDeclaration);
+    void setLanguageDeclarations(List<LanguageDeclaration> languageDeclaration);
 
     List<LocalTypeDeclaration> getLocalTypeDeclarations();
 
@@ -48,9 +48,9 @@ public interface Record {
 
     void setRecordId(String recordId);
 
-    RightsDeclaration getRightsDeclaration();
+    List<RightsDeclaration> getRightsDeclarations();
 
-    void setRightsDeclaration(RightsDeclaration rightsDeclaration);
+    void setRightsDeclarations(List<RightsDeclaration> rightsDeclaration);
 
     List<Source> getSources();
 
