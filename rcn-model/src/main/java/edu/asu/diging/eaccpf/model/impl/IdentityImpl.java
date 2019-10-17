@@ -5,19 +5,15 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import edu.asu.diging.eaccpf.model.EntityId;
-import edu.asu.diging.eaccpf.model.EntityType;
 import edu.asu.diging.eaccpf.model.Identity;
 import edu.asu.diging.eaccpf.model.NameEntry;
 import edu.asu.diging.eaccpf.model.NameEntryParallel;
@@ -36,11 +32,10 @@ public class IdentityImpl implements Identity {
     private String localType;
     private String identityType;
     
-    @OneToOne(targetEntity=EntityIdImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private EntityId entityId;
+    @OneToMany(targetEntity=EntityIdImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<EntityId> entityIds;
     
-    @Enumerated(EnumType.STRING)
-    private EntityType entityType;
+    private String entityType;
     
     @ElementCollection
     @Lob
@@ -104,23 +99,23 @@ public class IdentityImpl implements Identity {
      * @see edu.asu.diging.rcn.core.model.impl.Identity#getEntityId()
      */
     @Override
-    public EntityId getEntityId() {
-        return entityId;
+    public List<EntityId> getEntityIds() {
+        return entityIds;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.Identity#setEntityId(edu.asu.diging.rcn.core.model.EntityId)
      */
     @Override
-    public void setEntityId(EntityId entityId) {
-        this.entityId = entityId;
+    public void setEntityIds(List<EntityId> entityId) {
+        this.entityIds = entityId;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.Identity#getEntityType()
      */
     @Override
-    public EntityType getEntityType() {
+    public String getEntityType() {
         return entityType;
     }
 
@@ -128,7 +123,7 @@ public class IdentityImpl implements Identity {
      * @see edu.asu.diging.rcn.core.model.impl.Identity#setEntityType(edu.asu.diging.rcn.core.model.EntityType)
      */
     @Override
-    public void setEntityType(EntityType entityType) {
+    public void setEntityType(String entityType) {
         this.entityType = entityType;
     }
 

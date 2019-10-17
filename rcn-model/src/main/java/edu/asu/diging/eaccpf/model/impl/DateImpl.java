@@ -23,6 +23,7 @@ public class DateImpl implements Date {
     private String date;
     private String standardDate;
     private String notBefore;
+    private String notAfter;
     
     
     /* (non-Javadoc)
@@ -80,6 +81,14 @@ public class DateImpl implements Date {
     @Override
     public void setNotBefore(String notBefore) {
         this.notBefore = notBefore;
+    }
+    @Override
+    public String getNotAfter() {
+        return notAfter;
+    }
+    @Override
+    public void setNotAfter(String notAfter) {
+        this.notAfter = notAfter;
     }
     
 }

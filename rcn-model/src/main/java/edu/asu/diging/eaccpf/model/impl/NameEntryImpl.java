@@ -3,6 +3,7 @@ package edu.asu.diging.eaccpf.model.impl;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -31,9 +32,12 @@ public class NameEntryImpl implements NameEntry {
     private String scriptCode;
     private String transliteration;
     
-    private String alternativeForm;
-    private String authorizedForm;
-    private String preferredForm;
+    @ElementCollection
+    private List<String> alternativeForms;
+    @ElementCollection
+    private List<String> authorizedForms;
+    @ElementCollection
+    private List<String> preferredForms;
     
     @OneToMany(targetEntity=NamePartImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<NamePart> parts;
@@ -109,48 +113,48 @@ public class NameEntryImpl implements NameEntry {
      * @see edu.asu.diging.rcn.core.model.impl.NameEntry#getAlternativeForm()
      */
     @Override
-    public String getAlternativeForm() {
-        return alternativeForm;
+    public List<String> getAlternativeForms() {
+        return alternativeForms;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.NameEntry#setAlternativeForm(java.lang.String)
      */
     @Override
-    public void setAlternativeForm(String alternativeForm) {
-        this.alternativeForm = alternativeForm;
+    public void setAlternativeForms(List<String> alternativeForms) {
+        this.alternativeForms = alternativeForms;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.NameEntry#getAuthorizedForm()
      */
     @Override
-    public String getAuthorizedForm() {
-        return authorizedForm;
+    public List<String> getAuthorizedForms() {
+        return authorizedForms;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.NameEntry#setAuthorizedForm(java.lang.String)
      */
     @Override
-    public void setAuthorizedForm(String authorizedForm) {
-        this.authorizedForm = authorizedForm;
+    public void setAuthorizedForms(List<String> authorizedForms) {
+        this.authorizedForms = authorizedForms;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.NameEntry#getPreferredForm()
      */
     @Override
-    public String getPreferredForm() {
-        return preferredForm;
+    public List<String> getPreferredForms() {
+        return preferredForms;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.NameEntry#setPreferredForm(java.lang.String)
      */
     @Override
-    public void setPreferredForm(String preferredForm) {
-        this.preferredForm = preferredForm;
+    public void setPreferredForms(List<String> preferredForms) {
+        this.preferredForms = preferredForms;
     }
 
     /* (non-Javadoc)

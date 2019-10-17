@@ -20,17 +20,17 @@ public interface NameEntry {
 
     void setTransliteration(String transliteration);
 
-    String getAlternativeForm();
+    List<String> getAlternativeForms();
 
-    void setAlternativeForm(String alternativeForm);
+    void setAlternativeForms(List<String> alternativeForms);
 
-    String getAuthorizedForm();
+    List<String> getAuthorizedForms();
 
-    void setAuthorizedForm(String authorizedForm);
+    void setAuthorizedForms(List<String> authorizedForms);
 
-    String getPreferredForm();
+    List<String> getPreferredForms();
 
-    void setPreferredForm(String preferredForm);
+    void setPreferredForms(List<String> preferredForms);
 
     List<NamePart> getParts();
 

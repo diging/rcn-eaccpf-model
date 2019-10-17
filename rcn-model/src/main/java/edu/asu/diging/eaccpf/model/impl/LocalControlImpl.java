@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
+import edu.asu.diging.eaccpf.model.Date;
 import edu.asu.diging.eaccpf.model.DateRange;
 import edu.asu.diging.eaccpf.model.LocalControl;
 
@@ -25,7 +26,8 @@ public class LocalControlImpl implements LocalControl {
             )
     private String id;
     
-    private String date;
+    @OneToMany(targetEntity=DateImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<Date> dates;
     @OneToMany(targetEntity=DateRangeImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<DateRange> dateRanges;
     private String term;
@@ -48,15 +50,15 @@ public class LocalControlImpl implements LocalControl {
      * @see edu.asu.diging.rcn.core.model.impl.LocalControl#getDate()
      */
     @Override
-    public String getDate() {
-        return date;
+    public List<Date> getDates() {
+        return dates;
     }
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.LocalControl#setDate(java.lang.String)
      */
     @Override
-    public void setDate(String date) {
-        this.date = date;
+    public void setDates(List<Date> dates) {
+        this.dates = dates;
     }
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.LocalControl#getDateRange()

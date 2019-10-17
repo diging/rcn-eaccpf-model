@@ -18,4 +18,8 @@ public interface Date {
 
     void setNotBefore(String notBefore);
 
+    void setNotAfter(String notAfter);
+
+    String getNotAfter();
+
 }

@@ -56,9 +56,9 @@ public interface Record {
 
     void setSources(List<Source> sources);
 
-    List<Identity> getIdentities();
+    Identity getIdentity();
 
-    void setIdentities(List<Identity> identities);
+    void setIdentity(Identity identities);
 
     List<Description> getDescription();
 

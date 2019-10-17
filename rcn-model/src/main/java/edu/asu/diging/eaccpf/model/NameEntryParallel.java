@@ -16,4 +16,16 @@ public interface NameEntryParallel {
 
     void setNameEntries(List<NameEntry> nameEntries);
 
+    void setAuthorizedForms(List<String> authorizedForms);
+
+    List<String> getAuthorizedForms();
+
+    void setAlternativeForms(List<String> alternativeForms);
+
+    List<String> getAlternativeForms();
+
+    void setUseDates(UseDates useDates);
+
+    UseDates getUseDates();
+
 }

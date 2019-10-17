@@ -69,8 +69,8 @@ public class RecordImpl implements Record {
     @OneToMany(targetEntity=SourceImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Source> sources;
     
-    @OneToMany(targetEntity=IdentityImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private List<Identity> identities;
+    @OneToOne(targetEntity=IdentityImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private Identity identity;
     
     @OneToMany(targetEntity=DescriptionImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Description> description;
@@ -293,16 +293,16 @@ public class RecordImpl implements Record {
      * @see edu.asu.diging.eaccpf.model.impl.Record#getIdentities()
      */
     @Override
-    public List<Identity> getIdentities() {
-        return identities;
+    public Identity getIdentity() {
+        return identity;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.eaccpf.model.impl.Record#setIdentities(java.util.List)
      */
     @Override
-    public void setIdentities(List<Identity> identities) {
-        this.identities = identities;
+    public void setIdentity(Identity identity) {
+        this.identity = identity;
     }
 
     /* (non-Javadoc)

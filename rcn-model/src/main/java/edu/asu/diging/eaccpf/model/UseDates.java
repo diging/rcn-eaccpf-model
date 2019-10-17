@@ -1,21 +1,23 @@
 package edu.asu.diging.eaccpf.model;
 
+import java.util.List;
+
 public interface UseDates {
 
     String getId();
 
     void setId(String id);
 
-    Date getDate();
+    List<Date> getDates();
 
-    void setDate(Date date);
+    void setDates(List<Date> date);
 
-    DateRange getDateRange();
+    List<DateRange> getDateRanges();
 
-    void setDateRange(DateRange dateRange);
+    void setDateRanges(List<DateRange> dateRange);
 
-    DateSet getDateSet();
+    List<DateSet> getDateSets();
 
-    void setDateSet(DateSet dateSet);
+    void setDateSets(List<DateSet> dateSet);
 
 }

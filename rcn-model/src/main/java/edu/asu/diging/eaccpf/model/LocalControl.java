@@ -8,9 +8,9 @@ public interface LocalControl {
 
     void setId(String id);
 
-    String getDate();
+    List<Date> getDates();
 
-    void setDate(String date);
+    void setDates(List<Date> date);
 
     List<DateRange> getDateRanges();
 

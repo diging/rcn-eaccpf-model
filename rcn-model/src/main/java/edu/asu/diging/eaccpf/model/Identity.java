@@ -16,13 +16,13 @@ public interface Identity {
 
     void setIdentityType(String identityType);
 
-    EntityId getEntityId();
+    List<EntityId> getEntityIds();
 
-    void setEntityId(EntityId entityId);
+    void setEntityIds(List<EntityId> entityIds);
 
-    EntityType getEntityType();
+    String getEntityType();
 
-    void setEntityType(EntityType entityType);
+    void setEntityType(String entityType);
 
     List<String> getDescriptiveNote();
 
