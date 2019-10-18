@@ -15,7 +15,6 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import edu.asu.diging.eaccpf.model.Address;
-import edu.asu.diging.eaccpf.model.Citation;
 import edu.asu.diging.eaccpf.model.Date;
 import edu.asu.diging.eaccpf.model.DateRange;
 import edu.asu.diging.eaccpf.model.DateSet;
@@ -36,8 +35,9 @@ public class PlaceImpl implements Place {
     
     private String localType;
     
-    @OneToMany(targetEntity=CitationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private List<Citation> citations;
+    @ElementCollection
+    @Lob
+    private List<String> citations;
     
     @OneToOne(targetEntity=DateImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private Date date;
@@ -97,7 +97,7 @@ public class PlaceImpl implements Place {
      * @see edu.asu.diging.rcn.core.model.impl.Place#getCitations()
      */
     @Override
-    public List<Citation> getCitations() {
+    public List<String> getCitations() {
         return citations;
     }
 
@@ -105,7 +105,7 @@ public class PlaceImpl implements Place {
      * @see edu.asu.diging.rcn.core.model.impl.Place#setCitations(java.util.List)
      */
     @Override
-    public void setCitations(List<Citation> citations) {
+    public void setCitations(List<String> citations) {
         this.citations = citations;
     }
 

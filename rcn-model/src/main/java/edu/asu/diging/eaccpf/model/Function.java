@@ -24,9 +24,9 @@ public interface Function {
 
     void setDescriptiveNote(List<String> descriptiveNote);
 
-    List<Citation> getCitations();
+    List<String> getCitations();
 
-    void setCitations(List<Citation> citations);
+    void setCitations(List<String> citations);
 
     List<PlaceEntry> getPlaceEntry();
 

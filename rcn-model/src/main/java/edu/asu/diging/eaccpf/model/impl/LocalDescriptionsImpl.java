@@ -14,7 +14,6 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import edu.asu.diging.eaccpf.model.Citation;
 import edu.asu.diging.eaccpf.model.ItemList;
 import edu.asu.diging.eaccpf.model.LocalDescription;
 import edu.asu.diging.eaccpf.model.LocalDescriptions;
@@ -33,8 +32,9 @@ public class LocalDescriptionsImpl implements LocalDescriptions {
     
     private String localType;
     
-    @OneToMany(targetEntity=CitationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private List<Citation> citations;
+    @ElementCollection
+    @Lob
+    private List<String> citations;
     
     @OneToOne(targetEntity=ItemListImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private ItemList itemList;
@@ -87,7 +87,7 @@ public class LocalDescriptionsImpl implements LocalDescriptions {
      * @see edu.asu.diging.rcn.core.model.impl.LocalDescription#getCitations()
      */
     @Override
-    public List<Citation> getCitations() {
+    public List<String> getCitations() {
         return citations;
     }
 
@@ -95,7 +95,7 @@ public class LocalDescriptionsImpl implements LocalDescriptions {
      * @see edu.asu.diging.rcn.core.model.impl.LocalDescription#setCitations(java.util.List)
      */
     @Override
-    public void setCitations(List<Citation> citations) {
+    public void setCitations(List<String> citations) {
         this.citations = citations;
     }
 

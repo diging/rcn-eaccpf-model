@@ -14,7 +14,6 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import edu.asu.diging.eaccpf.model.Citation;
 import edu.asu.diging.eaccpf.model.Date;
 import edu.asu.diging.eaccpf.model.DateRange;
 import edu.asu.diging.eaccpf.model.DateSet;
@@ -46,8 +45,9 @@ public class FunctionImpl implements Function {
     @Lob
     private List<String> descriptiveNote;
     
-    @OneToMany(targetEntity=CitationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private List<Citation> citations;
+    @ElementCollection
+    @Lob
+    private List<String> citations;
     
     @OneToMany(targetEntity=PlaceEntryImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<PlaceEntry> placeEntries;
@@ -139,7 +139,7 @@ public class FunctionImpl implements Function {
      * @see edu.asu.diging.rcn.core.model.impl.Function#getCitations()
      */
     @Override
-    public List<Citation> getCitations() {
+    public List<String> getCitations() {
         return citations;
     }
 
@@ -147,7 +147,7 @@ public class FunctionImpl implements Function {
      * @see edu.asu.diging.rcn.core.model.impl.Function#setCitations(java.util.List)
      */
     @Override
-    public void setCitations(List<Citation> citations) {
+    public void setCitations(List<String> citations) {
         this.citations = citations;
     }
 

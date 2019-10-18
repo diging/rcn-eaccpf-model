@@ -8,13 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import edu.asu.diging.eaccpf.model.Citation;
 import edu.asu.diging.eaccpf.model.GeneralContext;
 import edu.asu.diging.eaccpf.model.ItemList;
 import edu.asu.diging.eaccpf.model.Outline;
@@ -30,8 +28,9 @@ public class GeneralContextImpl implements GeneralContext {
             
     private String id;
     
-    @OneToMany(targetEntity=CitationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private List<Citation> citations;
+    @ElementCollection
+    @Lob
+    private List<String> citations;
     
     @OneToOne(targetEntity=ItemListImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private ItemList itemList;
@@ -63,7 +62,7 @@ public class GeneralContextImpl implements GeneralContext {
      * @see edu.asu.diging.rcn.core.model.impl.GeneralContext#getCitations()
      */
     @Override
-    public List<Citation> getCitations() {
+    public List<String> getCitations() {
         return citations;
     }
 
@@ -71,7 +70,7 @@ public class GeneralContextImpl implements GeneralContext {
      * @see edu.asu.diging.rcn.core.model.impl.GeneralContext#setCitations(java.util.List)
      */
     @Override
-    public void setCitations(List<Citation> citations) {
+    public void setCitations(List<String> citations) {
         this.citations = citations;
     }
 

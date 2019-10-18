@@ -34,4 +34,16 @@ public interface PlaceEntry {
 
     void setVocabularySource(String vocabularySource);
 
+    void setText(String text);
+
+    String getText();
+
+    void setAltitude(String altitude);
+
+    String getAltitude();
+
+    void setAccuracy(String accuracy);
+
+    String getAccuracy();
+
 }

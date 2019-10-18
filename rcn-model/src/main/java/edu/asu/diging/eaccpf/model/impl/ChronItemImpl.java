@@ -1,10 +1,12 @@
 package edu.asu.diging.eaccpf.model.impl;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -12,6 +14,7 @@ import org.hibernate.annotations.Parameter;
 import edu.asu.diging.eaccpf.model.ChronItem;
 import edu.asu.diging.eaccpf.model.Date;
 import edu.asu.diging.eaccpf.model.DateRange;
+import edu.asu.diging.eaccpf.model.PlaceEntry;
 
 @Entity
 public class ChronItemImpl implements ChronItem {
@@ -25,14 +28,16 @@ public class ChronItemImpl implements ChronItem {
     private String id;
     private String localType;
     
-    @OneToOne(targetEntity=DateImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private Date date;
+    @OneToMany(targetEntity=DateImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<Date> dates;
     
-    @OneToOne(targetEntity=DateRangeImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private DateRange dateRange;
+    @OneToMany(targetEntity=DateRangeImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<DateRange> dateRanges;
     
     private String event;
-    private String placeEntry;
+    
+    @OneToMany(targetEntity=PlaceEntryImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<PlaceEntry> placeEntries;
     
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.ChronItem#getId()
@@ -60,29 +65,29 @@ public class ChronItemImpl implements ChronItem {
      * @see edu.asu.diging.rcn.core.model.impl.ChronItem#getDate()
      */
     @Override
-    public Date getDate() {
-        return date;
+    public List<Date> getDates() {
+        return dates;
     }
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.ChronItem#setDate(edu.asu.diging.rcn.core.model.Date)
      */
     @Override
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDates(List<Date> dates) {
+        this.dates = dates;
     }
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.ChronItem#getDateRange()
      */
     @Override
-    public DateRange getDateRange() {
-        return dateRange;
+    public List<DateRange> getDateRanges() {
+        return dateRanges;
     }
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.ChronItem#setDateRange(edu.asu.diging.rcn.core.model.DateRange)
      */
     @Override
-    public void setDateRange(DateRange dateRange) {
-        this.dateRange = dateRange;
+    public void setDateRanges(List<DateRange> dateRanges) {
+        this.dateRanges = dateRanges;
     }
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.ChronItem#getEvent()
@@ -102,15 +107,15 @@ public class ChronItemImpl implements ChronItem {
      * @see edu.asu.diging.rcn.core.model.impl.ChronItem#getPlaceEntry()
      */
     @Override
-    public String getPlaceEntry() {
-        return placeEntry;
+    public List<PlaceEntry> getPlaceEntries() {
+        return placeEntries;
     }
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.ChronItem#setPlaceEntry(java.lang.String)
      */
     @Override
-    public void setPlaceEntry(String placeEntry) {
-        this.placeEntry = placeEntry;
+    public void setPlaceEntries(List<PlaceEntry> placeEntries) {
+        this.placeEntries = placeEntries;
     }
     
 }

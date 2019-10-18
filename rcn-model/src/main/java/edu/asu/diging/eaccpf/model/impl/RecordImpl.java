@@ -72,8 +72,8 @@ public class RecordImpl implements Record {
     @OneToOne(targetEntity=IdentityImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private Identity identity;
     
-    @OneToMany(targetEntity=DescriptionImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private List<Description> description;
+    @OneToOne(targetEntity=DescriptionImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private Description description;
     
     @OneToMany(targetEntity=RelationsImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Relations> relations;
@@ -309,7 +309,7 @@ public class RecordImpl implements Record {
      * @see edu.asu.diging.eaccpf.model.impl.Record#getDescription()
      */
     @Override
-    public List<Description> getDescription() {
+    public Description getDescription() {
         return description;
     }
 
@@ -317,7 +317,7 @@ public class RecordImpl implements Record {
      * @see edu.asu.diging.eaccpf.model.impl.Record#setDescription(java.util.List)
      */
     @Override
-    public void setDescription(List<Description> description) {
+    public void setDescription(Description description) {
         this.description = description;
     }
 

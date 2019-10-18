@@ -36,8 +36,8 @@ public interface Occupation {
 
     void setTerm(Term term);
 
-    List<Citation> getCitations();
+    List<String> getCitations();
 
-    void setCitations(List<Citation> citations);
+    void setCitations(List<String> citations);
 
 }

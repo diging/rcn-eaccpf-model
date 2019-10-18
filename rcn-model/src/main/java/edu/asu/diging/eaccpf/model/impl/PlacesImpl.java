@@ -14,7 +14,6 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import edu.asu.diging.eaccpf.model.Citation;
 import edu.asu.diging.eaccpf.model.ItemList;
 import edu.asu.diging.eaccpf.model.Outline;
 import edu.asu.diging.eaccpf.model.Place;
@@ -33,8 +32,9 @@ public class PlacesImpl implements Places {
     
     private String localType;
     
-    @OneToMany(targetEntity=CitationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private List<Citation> citations;
+    @ElementCollection
+    @Lob
+    private List<String> citations;
     
     @OneToOne(targetEntity=ItemListImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private ItemList itemList;
@@ -89,7 +89,7 @@ public class PlacesImpl implements Places {
      * @see edu.asu.diging.rcn.core.model.impl.Places#getCitations()
      */
     @Override
-    public List<Citation> getCitations() {
+    public List<String> getCitations() {
         return citations;
     }
 
@@ -97,7 +97,7 @@ public class PlacesImpl implements Places {
      * @see edu.asu.diging.rcn.core.model.impl.Places#setCitations(java.util.List)
      */
     @Override
-    public void setCitations(List<Citation> citations) {
+    public void setCitations(List<String> citations) {
         this.citations = citations;
     }
 

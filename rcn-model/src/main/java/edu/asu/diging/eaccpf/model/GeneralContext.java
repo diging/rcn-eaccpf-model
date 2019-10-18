@@ -8,9 +8,9 @@ public interface GeneralContext {
 
     void setId(String id);
 
-    List<Citation> getCitations();
+    List<String> getCitations();
 
-    void setCitations(List<Citation> citations);
+    void setCitations(List<String> citations);
 
     ItemList getItemList();
 

@@ -12,9 +12,9 @@ public interface LegalStatuses {
 
     void setLocalType(String localType);
 
-    List<Citation> getCitations();
+    List<String> getCitations();
 
-    void setCitations(List<Citation> citations);
+    void setCitations(List<String> citations);
 
     List<String> getDescriptiveNote();
 

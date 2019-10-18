@@ -8,13 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import edu.asu.diging.eaccpf.model.Citation;
 import edu.asu.diging.eaccpf.model.Date;
 import edu.asu.diging.eaccpf.model.DateRange;
 import edu.asu.diging.eaccpf.model.DateSet;
@@ -54,8 +52,9 @@ public class OccupationImpl implements Occupation {
     @OneToOne(targetEntity=TermImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private Term term;
     
-    @OneToMany(targetEntity=CitationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private List<Citation> citations;
+    @ElementCollection
+    @Lob
+    private List<String> citations;
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.Occupation#getId()
@@ -189,7 +188,7 @@ public class OccupationImpl implements Occupation {
      * @see edu.asu.diging.rcn.core.model.impl.Occupation#getCitations()
      */
     @Override
-    public List<Citation> getCitations() {
+    public List<String> getCitations() {
         return citations;
     }
 
@@ -197,7 +196,7 @@ public class OccupationImpl implements Occupation {
      * @see edu.asu.diging.rcn.core.model.impl.Occupation#setCitations(java.util.List)
      */
     @Override
-    public void setCitations(List<Citation> citations) {
+    public void setCitations(List<String> citations) {
         this.citations = citations;
     }
 }

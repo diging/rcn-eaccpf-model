@@ -33,6 +33,12 @@ public class PlaceEntryImpl implements PlaceEntry {
     private String transliteration;
     
     private String vocabularySource;
+    
+    private String accuracy;
+    
+    private String altitude;
+    
+    private String text;
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.PlaceEntry#getId()
@@ -160,6 +166,36 @@ public class PlaceEntryImpl implements PlaceEntry {
     @Override
     public void setVocabularySource(String vocabularySource) {
         this.vocabularySource = vocabularySource;
+    }
+
+    @Override
+    public String getAccuracy() {
+        return accuracy;
+    }
+
+    @Override
+    public void setAccuracy(String accuracy) {
+        this.accuracy = accuracy;
+    }
+
+    @Override
+    public String getAltitude() {
+        return altitude;
+    }
+
+    @Override
+    public void setAltitude(String altitude) {
+        this.altitude = altitude;
+    }
+
+    @Override
+    public String getText() {
+        return text;
+    }
+
+    @Override
+    public void setText(String text) {
+        this.text = text;
     }
     
 }

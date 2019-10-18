@@ -8,9 +8,9 @@ public interface Description {
 
     void setId(String id);
 
-    BiogHist getBiogHist();
+    List<BiogHist> getBiogHists();
 
-    void setBiogHist(BiogHist biogHist);
+    void setBiogHists(List<BiogHist> biogHists);
 
     ExistDates getExistDates();
 

@@ -43,8 +43,8 @@ public class DescriptionImpl implements Description {
             )
     private String id;
     
-    @OneToOne(targetEntity=BiogHistImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private BiogHist biogHist;
+    @OneToMany(targetEntity=BiogHistImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<BiogHist> biogHists;
     
     @OneToOne(targetEntity=ExistDatesImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private ExistDates existDates;
@@ -117,16 +117,16 @@ public class DescriptionImpl implements Description {
      * @see edu.asu.diging.rcn.core.model.impl.Description#getBiogHist()
      */
     @Override
-    public BiogHist getBiogHist() {
-        return biogHist;
+    public List<BiogHist> getBiogHists() {
+        return biogHists;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.Description#setBiogHist(edu.asu.diging.rcn.core.model.BiogHist)
      */
     @Override
-    public void setBiogHist(BiogHist biogHist) {
-        this.biogHist = biogHist;
+    public void setBiogHists(List<BiogHist> biogHists) {
+        this.biogHists = biogHists;
     }
 
     /* (non-Javadoc)

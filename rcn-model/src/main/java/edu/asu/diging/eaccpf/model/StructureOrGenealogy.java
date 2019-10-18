@@ -12,9 +12,9 @@ public interface StructureOrGenealogy {
 
     void setLocalType(String localType);
 
-    List<Citation> getCitations();
+    List<String> getCitations();
 
-    void setCitations(List<Citation> citations);
+    void setCitations(List<String> citations);
 
     ItemList getItemList();
 

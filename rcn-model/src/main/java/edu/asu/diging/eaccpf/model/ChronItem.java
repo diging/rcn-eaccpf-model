@@ -1,26 +1,28 @@
 package edu.asu.diging.eaccpf.model;
 
+import java.util.List;
+
 public interface ChronItem {
 
     String getId();
 
     void setId(String id);
 
-    Date getDate();
+    List<Date> getDates();
 
-    void setDate(Date date);
+    void setDates(List<Date> date);
 
-    DateRange getDateRange();
+    List<DateRange> getDateRanges();
 
-    void setDateRange(DateRange dateRange);
+    void setDateRanges(List<DateRange> dateRanges);
 
     String getEvent();
 
     void setEvent(String event);
 
-    String getPlaceEntry();
+    List<PlaceEntry> getPlaceEntries();
 
-    void setPlaceEntry(String placeEntry);
+    void setPlaceEntries(List<PlaceEntry> placeEntries);
 
     void setLocalType(String localType);
 

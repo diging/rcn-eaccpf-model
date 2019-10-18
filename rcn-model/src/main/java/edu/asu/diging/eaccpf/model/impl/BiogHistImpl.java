@@ -17,7 +17,6 @@ import org.hibernate.annotations.Parameter;
 import edu.asu.diging.eaccpf.model.Abstract;
 import edu.asu.diging.eaccpf.model.BiogHist;
 import edu.asu.diging.eaccpf.model.ChronList;
-import edu.asu.diging.eaccpf.model.Citation;
 import edu.asu.diging.eaccpf.model.ItemList;
 import edu.asu.diging.eaccpf.model.Outline;
 
@@ -44,14 +43,15 @@ public class BiogHistImpl implements BiogHist {
     @OneToOne(targetEntity=ChronListImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private ChronList chronList;
     
-    @OneToMany(targetEntity=CitationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private List<Citation> citations;
+    @ElementCollection
+    @Lob
+    private List<String> citations;
     
     @OneToOne(targetEntity=ItemListImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private ItemList itemList;
     
-    @OneToOne(targetEntity=OutlineImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private Outline outline;
+    @OneToMany(targetEntity=OutlineImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<Outline> outlines;
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.BiogHist#getId()
@@ -137,7 +137,7 @@ public class BiogHistImpl implements BiogHist {
      * @see edu.asu.diging.rcn.core.model.impl.BiogHist#getCitations()
      */
     @Override
-    public List<Citation> getCitations() {
+    public List<String> getCitations() {
         return citations;
     }
 
@@ -145,7 +145,7 @@ public class BiogHistImpl implements BiogHist {
      * @see edu.asu.diging.rcn.core.model.impl.BiogHist#setCitations(java.util.List)
      */
     @Override
-    public void setCitations(List<Citation> citations) {
+    public void setCitations(List<String> citations) {
         this.citations = citations;
     }
 
@@ -169,16 +169,16 @@ public class BiogHistImpl implements BiogHist {
      * @see edu.asu.diging.rcn.core.model.impl.BiogHist#getOutline()
      */
     @Override
-    public Outline getOutline() {
-        return outline;
+    public List<Outline> getOutlines() {
+        return outlines;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.BiogHist#setOutline(edu.asu.diging.rcn.core.model.Outline)
      */
     @Override
-    public void setOutline(Outline outline) {
-        this.outline = outline;
+    public void setOutlines(List<Outline> outlines) {
+        this.outlines = outlines;
     }
     
 }

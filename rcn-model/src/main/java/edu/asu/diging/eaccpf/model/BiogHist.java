@@ -24,16 +24,16 @@ public interface BiogHist {
 
     void setChronList(ChronList chronList);
 
-    List<Citation> getCitations();
+    List<String> getCitations();
 
-    void setCitations(List<Citation> citations);
+    void setCitations(List<String> citations);
 
     ItemList getItemList();
 
     void setItemList(ItemList itemList);
 
-    Outline getOutline();
+    List<Outline> getOutlines();
 
-    void setOutline(Outline outline);
+    void setOutlines(List<Outline> outline);
 
 }

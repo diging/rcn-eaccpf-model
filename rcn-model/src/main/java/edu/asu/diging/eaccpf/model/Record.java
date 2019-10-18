@@ -60,9 +60,9 @@ public interface Record {
 
     void setIdentity(Identity identities);
 
-    List<Description> getDescription();
+    Description getDescription();
 
-    void setDescription(List<Description> description);
+    void setDescription(Description description);
 
     List<Relations> getRelations();
 
