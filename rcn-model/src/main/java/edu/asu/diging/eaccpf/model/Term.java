@@ -22,4 +22,8 @@ public interface Term {
 
     void setVocabularySource(String vocabularySource);
 
+    void setText(String text);
+
+    String getText();
+
 }

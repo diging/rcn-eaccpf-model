@@ -24,13 +24,13 @@ public interface Functions {
 
     void setFunctions(List<Function> functions);
 
-    ItemList getItemList();
+    List<ItemList> getItemLists();
 
-    void setItemList(ItemList itemList);
+    void setItemLists(List<ItemList> itemList);
 
-    Outline getOutline();
+    List<Outline> getOutlines();
 
-    void setOutline(Outline outline);
+    void setOutlines(List<Outline> outline);
 
     List<String> getPs();
 

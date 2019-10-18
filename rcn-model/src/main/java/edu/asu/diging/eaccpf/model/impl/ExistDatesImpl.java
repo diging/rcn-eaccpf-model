@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -29,18 +29,20 @@ public class ExistDatesImpl implements ExistDates {
             )
     private String id;
     
-    @OneToOne(targetEntity=DateImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private Date date;
+    @OneToMany(targetEntity=DateImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<Date> dates;
     
-    @OneToOne(targetEntity=DateRangeImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private DateRange dateRange;
+    @OneToMany(targetEntity=DateRangeImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<DateRange> dateRanges;
     
-    @OneToOne(targetEntity=DateSetImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private DateSet dateSet;
+    @OneToMany(targetEntity=DateSetImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<DateSet> dateSets;
     
     @ElementCollection
     @Lob
     private List<String> descriptiveNote;
+    
+    private String localType;
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.ExistDates#getId()
@@ -62,48 +64,48 @@ public class ExistDatesImpl implements ExistDates {
      * @see edu.asu.diging.rcn.core.model.impl.ExistDates#getDate()
      */
     @Override
-    public Date getDate() {
-        return date;
+    public List<Date> getDates() {
+        return dates;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.ExistDates#setDate(edu.asu.diging.rcn.core.model.Date)
      */
     @Override
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDates(List<Date> date) {
+        this.dates = date;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.ExistDates#getDateRange()
      */
     @Override
-    public DateRange getDateRange() {
-        return dateRange;
+    public List<DateRange> getDateRanges() {
+        return dateRanges;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.ExistDates#setDateRange(edu.asu.diging.rcn.core.model.DateRange)
      */
     @Override
-    public void setDateRange(DateRange dateRange) {
-        this.dateRange = dateRange;
+    public void setDateRanges(List<DateRange> dateRange) {
+        this.dateRanges = dateRange;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.ExistDates#getDateSet()
      */
     @Override
-    public DateSet getDateSet() {
-        return dateSet;
+    public List<DateSet> getDateSets() {
+        return dateSets;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.ExistDates#setDateSet(edu.asu.diging.rcn.core.model.DateSet)
      */
     @Override
-    public void setDateSet(DateSet dateSet) {
-        this.dateSet = dateSet;
+    public void setDateSets(List<DateSet> dateSet) {
+        this.dateSets = dateSet;
     }
 
     /* (non-Javadoc)
@@ -120,6 +122,16 @@ public class ExistDatesImpl implements ExistDates {
     @Override
     public void setDescriptiveNote(List<String> descriptiveNote) {
         this.descriptiveNote = descriptiveNote;
+    }
+
+    @Override
+    public String getLocalType() {
+        return localType;
+    }
+
+    @Override
+    public void setLocalType(String localType) {
+        this.localType = localType;
     }
     
 }

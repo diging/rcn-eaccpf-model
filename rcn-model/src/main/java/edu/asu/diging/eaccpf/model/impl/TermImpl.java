@@ -3,6 +3,7 @@ package edu.asu.diging.eaccpf.model.impl;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -19,6 +20,9 @@ public class TermImpl implements Term {
                     strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
+
+    @Lob
+    private String text;
     
     private String lastDateTimeVerified;
     
@@ -42,6 +46,16 @@ public class TermImpl implements Term {
     @Override
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public String getText() {
+        return text;
+    }
+
+    @Override
+    public void setText(String text) {
+        this.text = text;
     }
 
     /* (non-Javadoc)

@@ -8,17 +8,17 @@ public interface Function {
 
     void setId(String id);
 
-    Date getDate();
+    List<Date> getDates();
 
-    void setDate(Date date);
+    void setDates(List<Date> dates);
 
-    DateRange getDateRange();
+    List<DateRange> getDateRanges();
 
-    void setDateRange(DateRange dateRange);
+    void setDateRanges(List<DateRange> dateRanges);
 
-    DateSet getDateSet();
+    List<DateSet> getDateSets();
 
-    void setDateSet(DateSet dateSet);
+    void setDateSets(List<DateSet> dateSets);
 
     List<String> getDescriptiveNote();
 
@@ -28,9 +28,9 @@ public interface Function {
 
     void setCitations(List<String> citations);
 
-    List<PlaceEntry> getPlaceEntry();
+    List<PlaceEntry> getPlaceEntries();
 
-    void setPlaceEntry(List<PlaceEntry> placeEntry);
+    void setPlaceEntries(List<PlaceEntry> placeEntry);
 
     Term getTerm();
 
