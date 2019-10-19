@@ -38,20 +38,20 @@ public class LocalDescriptionImpl implements LocalDescription {
     private List<String> citations;
     
     @OneToOne(targetEntity=DateImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private Date date;
+    private List<Date> dates;
     
     @OneToOne(targetEntity=DateRangeImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private DateRange dateRange;
+    private List<DateRange> dateRanges;
     
     @OneToOne(targetEntity=DateSetImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private DateSet dateSet;
+    private List<DateSet> dateSets;
     
     @ElementCollection
     @Lob
     private List<String> descriptiveNote;
     
     @OneToOne(targetEntity=PlaceEntryImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private PlaceEntry placeEntry;
+    private List<PlaceEntry> placeEntries;
     
     @OneToOne(targetEntity=TermImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private Term term;
@@ -108,48 +108,48 @@ public class LocalDescriptionImpl implements LocalDescription {
      * @see edu.asu.diging.rcn.core.model.impl.LocalDescription#getDate()
      */
     @Override
-    public Date getDate() {
-        return date;
+    public List<Date> getDates() {
+        return dates;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.LocalDescription#setDate(edu.asu.diging.rcn.core.model.Date)
      */
     @Override
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDates(List<Date> dates) {
+        this.dates = dates;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.LocalDescription#getDateRange()
      */
     @Override
-    public DateRange getDateRange() {
-        return dateRange;
+    public List<DateRange> getDateRanges() {
+        return dateRanges;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.LocalDescription#setDateRange(edu.asu.diging.rcn.core.model.DateRange)
      */
     @Override
-    public void setDateRange(DateRange dateRange) {
-        this.dateRange = dateRange;
+    public void setDateRanges(List<DateRange> dateRanges) {
+        this.dateRanges = dateRanges;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.LocalDescription#getDateSet()
      */
     @Override
-    public DateSet getDateSet() {
-        return dateSet;
+    public List<DateSet> getDateSets() {
+        return dateSets;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.LocalDescription#setDateSet(edu.asu.diging.rcn.core.model.DateSet)
      */
     @Override
-    public void setDateSet(DateSet dateSet) {
-        this.dateSet = dateSet;
+    public void setDateSets(List<DateSet> dateSets) {
+        this.dateSets = dateSets;
     }
 
     /* (non-Javadoc)
@@ -172,16 +172,16 @@ public class LocalDescriptionImpl implements LocalDescription {
      * @see edu.asu.diging.rcn.core.model.impl.LocalDescription#getPlaceEntry()
      */
     @Override
-    public PlaceEntry getPlaceEntry() {
-        return placeEntry;
+    public List<PlaceEntry> getPlaceEntries() {
+        return placeEntries;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.LocalDescription#setPlaceEntry(edu.asu.diging.rcn.core.model.PlaceEntry)
      */
     @Override
-    public void setPlaceEntry(PlaceEntry placeEntry) {
-        this.placeEntry = placeEntry;
+    public void setPlaceEntries(List<PlaceEntry> placeEntries) {
+        this.placeEntries = placeEntries;
     }
 
     /* (non-Javadoc)

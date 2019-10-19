@@ -6,13 +6,13 @@ public interface DateRange {
 
     void setId(String id);
 
-    String getFromDate();
+    Date getFromDate();
 
-    void setFromDate(String fromDate);
+    void setFromDate(Date fromDate);
 
-    String getToDate();
+    Date getToDate();
 
-    void setToDate(String toDate);
+    void setToDate(Date toDate);
 
     void setLocalType(String localType);
 

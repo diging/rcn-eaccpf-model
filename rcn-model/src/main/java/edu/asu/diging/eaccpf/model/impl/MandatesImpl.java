@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -36,11 +35,11 @@ public class MandatesImpl implements Mandates {
     @Lob
     private List<String> citations;
     
-    @OneToOne(targetEntity=ItemListImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private ItemList itemList;
+    @OneToMany(targetEntity=ItemListImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<ItemList> itemLists;
     
-    @OneToOne(targetEntity=OutlineImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private Outline outline;
+    @OneToMany(targetEntity=OutlineImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<Outline> outlines;
     
     @ElementCollection
     @Lob
@@ -105,32 +104,32 @@ public class MandatesImpl implements Mandates {
      * @see edu.asu.diging.rcn.core.model.impl.Mandates#getItemList()
      */
     @Override
-    public ItemList getItemList() {
-        return itemList;
+    public List<ItemList> getItemLists() {
+        return itemLists;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.Mandates#setItemList(edu.asu.diging.rcn.core.model.ItemList)
      */
     @Override
-    public void setItemList(ItemList itemList) {
-        this.itemList = itemList;
+    public void setItemLists(List<ItemList> itemList) {
+        this.itemLists = itemList;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.Mandates#getOutline()
      */
     @Override
-    public Outline getOutline() {
-        return outline;
+    public List<Outline> getOutlines() {
+        return outlines;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.Mandates#setOutline(edu.asu.diging.rcn.core.model.Outline)
      */
     @Override
-    public void setOutline(Outline outline) {
-        this.outline = outline;
+    public void setOutlines(List<Outline> outline) {
+        this.outlines = outline;
     }
 
     /* (non-Javadoc)

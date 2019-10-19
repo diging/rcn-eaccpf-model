@@ -16,13 +16,13 @@ public interface Mandates {
 
     void setCitations(List<String> citations);
 
-    ItemList getItemList();
+    List<ItemList> getItemLists();
 
-    void setItemList(ItemList itemList);
+    void setItemLists(List<ItemList> itemList);
 
-    Outline getOutline();
+    List<Outline> getOutlines();
 
-    void setOutline(Outline outline);
+    void setOutlines(List<Outline> outline);
 
     List<String> getPs();
 

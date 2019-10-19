@@ -16,25 +16,25 @@ public interface LegalStatus {
 
     void setCitations(List<String> citations);
 
-    Date getDate();
+    List<Date> getDates();
 
-    void setDate(Date date);
+    void setDates(List<Date> dates);
 
-    DateRange getDateRange();
+    List<DateRange> getDateRanges();
 
-    void setDateRange(DateRange dateRange);
+    void setDateRanges(List<DateRange> dateRanges);
 
-    DateSet getDateSet();
+    List<DateSet> getDateSets();
 
-    void setDateSet(DateSet dateSet);
+    void setDateSets(List<DateSet> dateSets);
 
     List<String> getDescriptiveNote();
 
     void setDescriptiveNote(List<String> descriptiveNote);
 
-    PlaceEntry getPlaceEntry();
+    List<PlaceEntry> getPlaceEntry();
 
-    void setPlaceEntry(PlaceEntry placeEntry);
+    void setPlaceEntry(List<PlaceEntry> placeEntries);
 
     Term getTerm();
 

@@ -55,8 +55,8 @@ public class DescriptionImpl implements Description {
     @OneToMany(targetEntity=FunctionsImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Functions> functionsElement;
     
-    @OneToOne(targetEntity=GeneralContextImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private GeneralContext generalContext;
+    @OneToMany(targetEntity=GeneralContextImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<GeneralContext> generalContexts;
     
     @OneToMany(targetEntity=LanguageUsedImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<LanguageUsed> languagesUsed;
@@ -68,7 +68,7 @@ public class DescriptionImpl implements Description {
     private List<LegalStatus> legalStatuses;
     
     @OneToMany(targetEntity=LegalStatusesImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private List<LegalStatuses> legalStatuseGroups;
+    private List<LegalStatuses> legalStatusGroups;
     
     @OneToMany(targetEntity=LocalDescriptionImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<LocalDescription> localDescriptions;
@@ -181,16 +181,16 @@ public class DescriptionImpl implements Description {
      * @see edu.asu.diging.rcn.core.model.impl.Description#getGeneralContext()
      */
     @Override
-    public GeneralContext getGeneralContext() {
-        return generalContext;
+    public List<GeneralContext> getGeneralContexts() {
+        return generalContexts;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.Description#setGeneralContext(edu.asu.diging.rcn.core.model.GeneralContext)
      */
     @Override
-    public void setGeneralContext(GeneralContext generalContext) {
-        this.generalContext = generalContext;
+    public void setGeneralContexts(List<GeneralContext> generalContexts) {
+        this.generalContexts = generalContexts;
     }
 
     /* (non-Javadoc)
@@ -245,16 +245,16 @@ public class DescriptionImpl implements Description {
      * @see edu.asu.diging.rcn.core.model.impl.Description#getLegalStatuseGroups()
      */
     @Override
-    public List<LegalStatuses> getLegalStatuseGroups() {
-        return legalStatuseGroups;
+    public List<LegalStatuses> getLegalStatusGroups() {
+        return legalStatusGroups;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.Description#setLegalStatuseGroups(java.util.List)
      */
     @Override
-    public void setLegalStatuseGroups(List<LegalStatuses> legalStatuseGroups) {
-        this.legalStatuseGroups = legalStatuseGroups;
+    public void setLegalStatuseGroups(List<LegalStatuses> legalStatusGroups) {
+        this.legalStatusGroups = legalStatusGroups;
     }
 
     /* (non-Javadoc)

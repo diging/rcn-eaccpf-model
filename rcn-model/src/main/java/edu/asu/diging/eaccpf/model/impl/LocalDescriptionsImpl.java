@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -36,17 +35,19 @@ public class LocalDescriptionsImpl implements LocalDescriptions {
     @Lob
     private List<String> citations;
     
-    @OneToOne(targetEntity=ItemListImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private ItemList itemList;
+    @OneToMany(targetEntity=ItemListImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<ItemList> itemLists;
     
-    @OneToOne(targetEntity=OutlineImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private Outline outline;
+    @OneToMany(targetEntity=OutlineImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<Outline> outlines;
     
     @ElementCollection
     @Lob
     private List<String> ps;
     
-    private String descriptiveNote;
+    @ElementCollection
+    @Lob
+    private List<String> descriptiveNote;
     
     @OneToMany(targetEntity=LocalDescriptionImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<LocalDescription> localDescriptions;
@@ -103,32 +104,32 @@ public class LocalDescriptionsImpl implements LocalDescriptions {
      * @see edu.asu.diging.rcn.core.model.impl.LocalDescription#getItemList()
      */
     @Override
-    public ItemList getItemList() {
-        return itemList;
+    public List<ItemList> getItemList() {
+        return itemLists;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.LocalDescription#setItemList(edu.asu.diging.rcn.core.model.ItemList)
      */
     @Override
-    public void setItemList(ItemList itemList) {
-        this.itemList = itemList;
+    public void setItemList(List<ItemList> itemLists) {
+        this.itemLists = itemLists;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.LocalDescription#getOutline()
      */
     @Override
-    public Outline getOutline() {
-        return outline;
+    public List<Outline> getOutline() {
+        return outlines;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.LocalDescription#setOutline(edu.asu.diging.rcn.core.model.Outline)
      */
     @Override
-    public void setOutline(Outline outline) {
-        this.outline = outline;
+    public void setOutline(List<Outline> outlines) {
+        this.outlines = outlines;
     }
 
     /* (non-Javadoc)
@@ -151,7 +152,7 @@ public class LocalDescriptionsImpl implements LocalDescriptions {
      * @see edu.asu.diging.rcn.core.model.impl.LocalDescription#getDescriptiveNote()
      */
     @Override
-    public String getDescriptiveNote() {
+    public List<String> getDescriptiveNote() {
         return descriptiveNote;
     }
 
@@ -159,7 +160,7 @@ public class LocalDescriptionsImpl implements LocalDescriptions {
      * @see edu.asu.diging.rcn.core.model.impl.LocalDescription#setDescriptiveNote(java.lang.String)
      */
     @Override
-    public void setDescriptiveNote(String descriptiveNote) {
+    public void setDescriptiveNote(List<String> descriptiveNote) {
         this.descriptiveNote = descriptiveNote;
     }
 

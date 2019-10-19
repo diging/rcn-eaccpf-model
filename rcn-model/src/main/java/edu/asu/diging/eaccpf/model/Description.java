@@ -24,9 +24,9 @@ public interface Description {
 
     void setFunctionsElement(List<Functions> functionsElement);
 
-    GeneralContext getGeneralContext();
+    List<GeneralContext> getGeneralContexts();
 
-    void setGeneralContext(GeneralContext generalContext);
+    void setGeneralContexts(List<GeneralContext> generalContext);
 
     List<LanguageUsed> getLanguagesUsed();
 
@@ -40,7 +40,7 @@ public interface Description {
 
     void setLegalStatuses(List<LegalStatus> legalStatuses);
 
-    List<LegalStatuses> getLegalStatuseGroups();
+    List<LegalStatuses> getLegalStatusGroups();
 
     void setLegalStatuseGroups(List<LegalStatuses> legalStatuseGroups);
 

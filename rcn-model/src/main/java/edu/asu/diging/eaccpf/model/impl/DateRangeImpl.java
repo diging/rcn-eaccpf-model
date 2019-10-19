@@ -1,12 +1,15 @@
 package edu.asu.diging.eaccpf.model.impl;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
+import edu.asu.diging.eaccpf.model.Date;
 import edu.asu.diging.eaccpf.model.DateRange;
 
 @Entity
@@ -20,8 +23,11 @@ public class DateRangeImpl implements DateRange {
             )
     private String id;
     
-    private String fromDate;
-    private String toDate;
+    @OneToOne(targetEntity=DateImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private Date fromDate;
+    
+    @OneToOne(targetEntity=DateImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private Date toDate;
     
     private String localType;
     
@@ -43,28 +49,28 @@ public class DateRangeImpl implements DateRange {
      * @see edu.asu.diging.rcn.core.model.impl.DateRange#getFromDate()
      */
     @Override
-    public String getFromDate() {
+    public Date getFromDate() {
         return fromDate;
     }
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.DateRange#setFromDate(java.lang.String)
      */
     @Override
-    public void setFromDate(String fromDate) {
+    public void setFromDate(Date fromDate) {
         this.fromDate = fromDate;
     }
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.DateRange#getToDate()
      */
     @Override
-    public String getToDate() {
+    public Date getToDate() {
         return toDate;
     }
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.DateRange#setToDate(java.lang.String)
      */
     @Override
-    public void setToDate(String toDate) {
+    public void setToDate(Date toDate) {
         this.toDate = toDate;
     }
     @Override

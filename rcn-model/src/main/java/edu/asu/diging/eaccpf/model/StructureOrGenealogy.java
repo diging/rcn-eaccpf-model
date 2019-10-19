@@ -16,13 +16,13 @@ public interface StructureOrGenealogy {
 
     void setCitations(List<String> citations);
 
-    ItemList getItemList();
+    List<ItemList> getItemLists();
 
-    void setItemList(ItemList itemList);
+    void setItemLists(List<ItemList> itemLists);
 
-    Outline getOutline();
+    List<Outline> getOutlines();
 
-    void setOutline(Outline outline);
+    void setOutlines(List<Outline> outlines);
 
     List<String> getPs();
 

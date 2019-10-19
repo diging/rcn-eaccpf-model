@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -39,14 +38,14 @@ public class PlaceImpl implements Place {
     @Lob
     private List<String> citations;
     
-    @OneToOne(targetEntity=DateImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private Date date;
+    @OneToMany(targetEntity=DateImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<Date> dates;
     
-    @OneToOne(targetEntity=DateRangeImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private DateRange dateRange;
+    @OneToMany(targetEntity=DateRangeImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<DateRange> dateRanges;
     
-    @OneToOne(targetEntity=DateSetImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private DateSet dateSet;
+    @OneToMany(targetEntity=DateSetImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<DateSet> dateSets;
     
     @ElementCollection
     @Lob
@@ -110,51 +109,51 @@ public class PlaceImpl implements Place {
     }
 
     /* (non-Javadoc)
-     * @see edu.asu.diging.rcn.core.model.impl.Place#getDate()
+     * @see edu.asu.diging.rcn.core.model.impl.Mandate#getDate()
      */
     @Override
-    public Date getDate() {
-        return date;
+    public List<Date> getDates() {
+        return dates;
     }
 
     /* (non-Javadoc)
-     * @see edu.asu.diging.rcn.core.model.impl.Place#setDate(edu.asu.diging.rcn.core.model.Date)
+     * @see edu.asu.diging.rcn.core.model.impl.Mandate#setDate(edu.asu.diging.rcn.core.model.Date)
      */
     @Override
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDates(List<Date> date) {
+        this.dates = date;
     }
 
     /* (non-Javadoc)
-     * @see edu.asu.diging.rcn.core.model.impl.Place#getDateRange()
+     * @see edu.asu.diging.rcn.core.model.impl.Mandate#getDateRange()
      */
     @Override
-    public DateRange getDateRange() {
-        return dateRange;
+    public List<DateRange> getDateRanges() {
+        return dateRanges;
     }
 
     /* (non-Javadoc)
-     * @see edu.asu.diging.rcn.core.model.impl.Place#setDateRange(edu.asu.diging.rcn.core.model.DateRange)
+     * @see edu.asu.diging.rcn.core.model.impl.Mandate#setDateRange(edu.asu.diging.rcn.core.model.DateRange)
      */
     @Override
-    public void setDateRange(DateRange dateRange) {
-        this.dateRange = dateRange;
+    public void setDateRanges(List<DateRange> dateRange) {
+        this.dateRanges = dateRange;
     }
 
     /* (non-Javadoc)
-     * @see edu.asu.diging.rcn.core.model.impl.Place#getDateSet()
+     * @see edu.asu.diging.rcn.core.model.impl.Mandate#getDateSet()
      */
     @Override
-    public DateSet getDateSet() {
-        return dateSet;
+    public List<DateSet> getDateSets() {
+        return dateSets;
     }
 
     /* (non-Javadoc)
-     * @see edu.asu.diging.rcn.core.model.impl.Place#setDateSet(edu.asu.diging.rcn.core.model.DateSet)
+     * @see edu.asu.diging.rcn.core.model.impl.Mandate#setDateSet(edu.asu.diging.rcn.core.model.DateSet)
      */
     @Override
-    public void setDateSet(DateSet dateSet) {
-        this.dateSet = dateSet;
+    public void setDateSets(List<DateSet> dateSet) {
+        this.dateSets = dateSet;
     }
 
     /* (non-Javadoc)

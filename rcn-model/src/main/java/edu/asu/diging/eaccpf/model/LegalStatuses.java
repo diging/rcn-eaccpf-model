@@ -24,13 +24,13 @@ public interface LegalStatuses {
 
     void setLegalStatuses(List<LegalStatus> legalStatuses);
 
-    ItemList getItemList();
+    List<ItemList> getItemList();
 
-    void setItemList(ItemList itemList);
+    void setItemList(List<ItemList> itemList);
 
-    Outline getOutline();
+    List<Outline> getOutline();
 
-    void setOutline(Outline outline);
+    void setOutline(List<Outline> outline);
 
     List<String> getPs();
 

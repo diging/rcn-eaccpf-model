@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -43,11 +42,11 @@ public class LegalStatusesImpl implements LegalStatuses {
     @OneToMany(targetEntity=LegalStatusImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<LegalStatus> legalStatuses;
     
-    @OneToOne(targetEntity=ItemListImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private ItemList itemList;
+    @OneToMany(targetEntity=ItemListImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<ItemList> itemLists;
     
-    @OneToOne(targetEntity=OutlineImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private Outline outline;
+    @OneToMany(targetEntity=OutlineImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<Outline> outlines;
     
     @ElementCollection
     @Lob
@@ -137,32 +136,32 @@ public class LegalStatusesImpl implements LegalStatuses {
      * @see edu.asu.diging.rcn.core.model.impl.LegalStatuses#getItemList()
      */
     @Override
-    public ItemList getItemList() {
-        return itemList;
+    public List<ItemList> getItemList() {
+        return itemLists;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.LegalStatuses#setItemList(edu.asu.diging.rcn.core.model.ItemList)
      */
     @Override
-    public void setItemList(ItemList itemList) {
-        this.itemList = itemList;
+    public void setItemList(List<ItemList> itemLists) {
+        this.itemLists = itemLists;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.LegalStatuses#getOutline()
      */
     @Override
-    public Outline getOutline() {
-        return outline;
+    public List<Outline> getOutline() {
+        return outlines;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.LegalStatuses#setOutline(edu.asu.diging.rcn.core.model.Outline)
      */
     @Override
-    public void setOutline(Outline outline) {
-        this.outline = outline;
+    public void setOutline(List<Outline> outlines) {
+        this.outlines = outlines;
     }
 
     /* (non-Javadoc)
