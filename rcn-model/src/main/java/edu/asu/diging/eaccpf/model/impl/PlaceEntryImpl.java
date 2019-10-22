@@ -3,6 +3,7 @@ package edu.asu.diging.eaccpf.model.impl;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -38,6 +39,7 @@ public class PlaceEntryImpl implements PlaceEntry {
     
     private String altitude;
     
+    @Lob
     private String text;
 
     /* (non-Javadoc)

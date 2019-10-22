@@ -28,6 +28,8 @@ public class SetComponentImpl implements SetComponent {
     private String id;
     
     private String lastDateTimeVerified;
+    
+    @Lob
     private String xlinkHref;
     
     @ElementCollection

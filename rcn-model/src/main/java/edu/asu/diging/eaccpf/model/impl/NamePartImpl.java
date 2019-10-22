@@ -3,6 +3,7 @@ package edu.asu.diging.eaccpf.model.impl;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -21,6 +22,8 @@ public class NamePartImpl implements NamePart {
     private String id;
     
     private String localType;
+    
+    @Lob
     private String part;
     
     /* (non-Javadoc)

@@ -23,6 +23,7 @@ public class MaintenanceAgencyImpl implements MaintenanceAgency {
                     strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
+    @Lob
     private String name;
     private String code;
     private String otherAgencyCode;

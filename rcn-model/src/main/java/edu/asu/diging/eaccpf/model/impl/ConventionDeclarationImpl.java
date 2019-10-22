@@ -22,6 +22,8 @@ public class ConventionDeclarationImpl implements ConventionDeclaration {
     private String id;
 
     private String abbreviation;
+    
+    @Lob
     private String citation;
 
     @ElementCollection

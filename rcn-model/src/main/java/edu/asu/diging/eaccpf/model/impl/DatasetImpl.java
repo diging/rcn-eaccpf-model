@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -25,8 +26,10 @@ public class DatasetImpl implements Dataset {
             )
     private String id;
     
+    @Lob
     private String title;
     
+    @Lob
     private String description;
     
     private String creator;

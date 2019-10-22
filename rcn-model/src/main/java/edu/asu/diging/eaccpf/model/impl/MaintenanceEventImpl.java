@@ -27,6 +27,7 @@ public class MaintenanceEventImpl implements MaintenanceEvent {
             )
     private String id;
     
+    @Lob
     private String agent;
     private String agentType;
     private String eventType;

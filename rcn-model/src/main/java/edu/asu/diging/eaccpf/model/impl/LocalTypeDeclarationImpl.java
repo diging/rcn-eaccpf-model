@@ -25,6 +25,8 @@ public class LocalTypeDeclarationImpl implements LocalTypeDeclaration {
     private String id;
     
     private String abbreviation;
+    
+    @Lob
     private String citation;
     
     @ElementCollection

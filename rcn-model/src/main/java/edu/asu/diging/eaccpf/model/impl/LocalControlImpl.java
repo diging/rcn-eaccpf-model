@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -30,6 +31,8 @@ public class LocalControlImpl implements LocalControl {
     private List<Date> dates;
     @OneToMany(targetEntity=DateRangeImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<DateRange> dateRanges;
+    
+    @Lob
     private String term;
     
     /* (non-Javadoc)

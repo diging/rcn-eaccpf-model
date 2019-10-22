@@ -27,6 +27,8 @@ public class RightsDeclarationImpl implements RightsDeclaration {
     private String localType;
     
     private String abbreviation;
+    
+    @Lob
     private String citation;
 
     @ElementCollection
