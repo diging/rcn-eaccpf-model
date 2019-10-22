@@ -8,9 +8,9 @@ public interface Source {
 
     void setId(String id);
 
-    void setRelationEntries(List<SourceEntry> relationEntries);
+    void setSourceEntries(List<SourceEntry> relationEntries);
 
-    List<SourceEntry> getRelationEntries();
+    List<SourceEntry> getSourceEntries();
 
     void setDescriptiveNote(List<String> descriptiveNote);
 

@@ -16,17 +16,17 @@ public interface ResourceRelation {
 
     void setLastDateTimeVerified(String lastDateTimeVerified);
 
-    List<Date> getDate();
+    List<Date> getDates();
 
-    void setDate(List<Date> date);
+    void setDates(List<Date> date);
 
-    List<DateRange> getDateRange();
+    List<DateRange> getDateRanges();
 
-    void setDateRange(List<DateRange> dateRange);
+    void setDateRanges(List<DateRange> dateRange);
 
-    List<DateSet> getDateSet();
+    List<DateSet> getDateSets();
 
-    void setDateSet(List<DateSet> dateSet);
+    void setDateSets(List<DateSet> dateSet);
 
     List<String> getDescriptiveNote();
 

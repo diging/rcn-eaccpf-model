@@ -34,7 +34,7 @@ public class SourceImpl implements Source {
     private List<String> descriptiveNote;
     
     @OneToMany(targetEntity=SourceEntryImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private List<SourceEntry> relationEntries;
+    private List<SourceEntry> sourceEntries;
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.Source#getId()
@@ -73,12 +73,12 @@ public class SourceImpl implements Source {
     }
 
     @Override
-    public List<SourceEntry> getRelationEntries() {
-        return relationEntries;
+    public List<SourceEntry> getSourceEntries() {
+        return sourceEntries;
     }
 
     @Override
-    public void setRelationEntries(List<SourceEntry> relationEntries) {
-        this.relationEntries = relationEntries;
+    public void setSourceEntries(List<SourceEntry> sourceEntries) {
+        this.sourceEntries = sourceEntries;
     }
 }

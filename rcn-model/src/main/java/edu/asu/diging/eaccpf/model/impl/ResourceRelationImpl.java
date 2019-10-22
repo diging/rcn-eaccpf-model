@@ -35,13 +35,13 @@ public class ResourceRelationImpl implements ResourceRelation {
     private String lastDateTimeVerified;
     
     @OneToMany(targetEntity=DateImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private List<Date> date;
+    private List<Date> dates;
     
     @OneToMany(targetEntity=DateRangeImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private List<DateRange> dateRange;
+    private List<DateRange> dateRanges;
     
     @OneToMany(targetEntity=DateSetImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
-    private List<DateSet> dateSet;
+    private List<DateSet> dateSets;
     
     @ElementCollection
     @Lob
@@ -107,48 +107,48 @@ public class ResourceRelationImpl implements ResourceRelation {
      * @see edu.asu.diging.rcn.core.model.impl.CpfRelation#getDate()
      */
     @Override
-    public List<Date> getDate() {
-        return date;
+    public List<Date> getDates() {
+        return dates;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.CpfRelation#setDate(java.util.List)
      */
     @Override
-    public void setDate(List<Date> date) {
-        this.date = date;
+    public void setDates(List<Date> dates) {
+        this.dates = dates;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.CpfRelation#getDateRange()
      */
     @Override
-    public List<DateRange> getDateRange() {
-        return dateRange;
+    public List<DateRange> getDateRanges() {
+        return dateRanges;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.CpfRelation#setDateRange(java.util.List)
      */
     @Override
-    public void setDateRange(List<DateRange> dateRange) {
-        this.dateRange = dateRange;
+    public void setDateRanges(List<DateRange> dateRanges) {
+        this.dateRanges = dateRanges;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.CpfRelation#getDateSet()
      */
     @Override
-    public List<DateSet> getDateSet() {
-        return dateSet;
+    public List<DateSet> getDateSets() {
+        return dateSets;
     }
 
     /* (non-Javadoc)
      * @see edu.asu.diging.rcn.core.model.impl.CpfRelation#setDateSet(java.util.List)
      */
     @Override
-    public void setDateSet(List<DateSet> dateSet) {
-        this.dateSet = dateSet;
+    public void setDateSets(List<DateSet> dateSets) {
+        this.dateSets = dateSets;
     }
 
     /* (non-Javadoc)
