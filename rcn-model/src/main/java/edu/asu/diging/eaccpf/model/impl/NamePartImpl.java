@@ -3,7 +3,9 @@ package edu.asu.diging.eaccpf.model.impl;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.Lob;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -11,6 +13,7 @@ import org.hibernate.annotations.Parameter;
 import edu.asu.diging.eaccpf.model.NamePart;
 
 @Entity
+@Table(indexes={@Index(name="part_idx", columnList="part")})
 public class NamePartImpl implements NamePart {
 
     @Id
