@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.IndexedEmbedded;
 
 import edu.asu.diging.eaccpf.model.EntityId;
 import edu.asu.diging.eaccpf.model.Identity;
@@ -35,6 +37,7 @@ public class IdentityImpl implements Identity {
     @OneToMany(targetEntity=EntityIdImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<EntityId> entityIds;
     
+    @Field
     private String entityType;
     
     @ElementCollection
@@ -42,6 +45,7 @@ public class IdentityImpl implements Identity {
     private List<String> descriptiveNote;
     
     @OneToMany(targetEntity=NameEntryImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    @IndexedEmbedded(targetElement=NameEntryImpl.class)
     private List<NameEntry> nameEntries;
     
     @OneToMany(targetEntity=NameEntryParallelImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)

@@ -72,4 +72,8 @@ public interface Record {
 
     void setSetComponents(List<SetComponent> setComponents);
 
+    void setDatasetId(String datasetId);
+
+    String getDatasetId();
+
 }

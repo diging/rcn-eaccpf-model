@@ -9,6 +9,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 
 import edu.asu.diging.eaccpf.model.NamePart;
 
@@ -19,13 +21,14 @@ public class NamePartImpl implements NamePart {
     @Id
     @GeneratedValue(generator = "nameEntry_id_generator")
     @GenericGenerator(name = "nameEntry_id_generator",    
-                    parameters = @Parameter(name = "prefix", value = "NE"), 
+                    parameters = @Parameter(name = "prefix", value = "NP"), 
                     strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
     
     private String localType;
     
+    @Field
     @Lob
     private String part;
     

@@ -16,7 +16,7 @@ public interface RecordRepository extends PagingAndSortingRepository<RecordImpl,
     @Query("Select r from RecordImpl r, DatasetImpl d where :nameentry member r.identity.nameEntries and r member d.records and d.id = :datasetId")
     List<RecordImpl> findWhereNameEntryIsInNameEntries(@Param("nameentry") NameEntry entry, @Param("datasetId") String datasetId);
     
-    //@QueryHints(@javax.persistence.QueryHint(name="org.hibernate.fetchSize", value="50"))
+    @QueryHints(@javax.persistence.QueryHint(name="org.hibernate.fetchSize", value="50"))
     @Query("Select r from RecordImpl r, DatasetImpl d where r member d.records and d.id = :datasetId")
     Stream<RecordImpl> getByDataset(@Param("datasetId") String datasetId);
 }

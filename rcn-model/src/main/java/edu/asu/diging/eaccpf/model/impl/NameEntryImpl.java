@@ -12,6 +12,7 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
+import org.hibernate.search.annotations.IndexedEmbedded;
 
 import edu.asu.diging.eaccpf.model.NameEntry;
 import edu.asu.diging.eaccpf.model.NamePart;
@@ -32,13 +33,17 @@ public class NameEntryImpl implements NameEntry {
     private String scriptCode;
     private String transliteration;
     
+    @IndexedEmbedded
     @ElementCollection
     private List<String> alternativeForms;
+    @IndexedEmbedded
     @ElementCollection
     private List<String> authorizedForms;
+    @IndexedEmbedded
     @ElementCollection
     private List<String> preferredForms;
     
+    @IndexedEmbedded(targetElement=NamePartImpl.class)
     @OneToMany(targetEntity=NamePartImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<NamePart> parts;
     

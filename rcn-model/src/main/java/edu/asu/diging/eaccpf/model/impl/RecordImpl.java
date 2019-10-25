@@ -11,6 +11,13 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.DocumentId;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.FieldBridge;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.IndexedEmbedded;
+import org.hibernate.search.annotations.Store;
 
 import edu.asu.diging.eaccpf.model.ConventionDeclaration;
 import edu.asu.diging.eaccpf.model.Description;
@@ -27,15 +34,20 @@ import edu.asu.diging.eaccpf.model.SetComponent;
 import edu.asu.diging.eaccpf.model.Source;
 
 @Entity
+@Indexed
 public class RecordImpl implements Record {
 
     @Id
+    @DocumentId
     @GeneratedValue(generator = "record_id_generator")
     @GenericGenerator(name = "record_id_generator",    
                     parameters = @Parameter(name = "prefix", value = "RE"), 
                     strategy = "edu.asu.diging.eaccpf.data.IdGenerator"
             )
     private String id;
+    
+    @Field(analyze=Analyze.NO, store=Store.YES)
+    private String datasetId;
     
     @OneToMany(targetEntity=ConventionDeclarationImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<ConventionDeclaration> conventionDeclarations;
@@ -70,6 +82,7 @@ public class RecordImpl implements Record {
     private List<Source> sources;
     
     @OneToOne(targetEntity=IdentityImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
+    @IndexedEmbedded(targetElement=IdentityImpl.class)
     private Identity identity;
     
     @OneToOne(targetEntity=DescriptionImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
@@ -95,6 +108,16 @@ public class RecordImpl implements Record {
     @Override
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public String getDatasetId() {
+        return datasetId;
+    }
+
+    @Override
+    public void setDatasetId(String datasetId) {
+        this.datasetId = datasetId;
     }
 
     /* (non-Javadoc)

@@ -12,4 +12,5 @@ public interface NameEntryRepository extends PagingAndSortingRepository<NameEntr
 
     @Query("Select n from NameEntryImpl n, NamePartImpl p where p member n.parts and p.part like %:part%")
     List<NameEntryImpl> findWherePartsIsLikePart(@Param("part") String part);
+    
 }
