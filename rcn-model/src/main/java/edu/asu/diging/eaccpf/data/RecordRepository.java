@@ -3,6 +3,7 @@ package edu.asu.diging.eaccpf.data;
 import java.util.List;
 import java.util.stream.Stream;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.QueryHints;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -19,4 +20,9 @@ public interface RecordRepository extends PagingAndSortingRepository<RecordImpl,
     @QueryHints(@javax.persistence.QueryHint(name="org.hibernate.fetchSize", value="50"))
     @Query("Select r from RecordImpl r, DatasetImpl d where r member d.records and d.id = :datasetId")
     Stream<RecordImpl> getByDataset(@Param("datasetId") String datasetId);
+    
+    @Query("Select r from RecordImpl r, DatasetImpl d where r member d.records and d.id = :datasetId")
+    List<RecordImpl> getByDatasetPageable(@Param("datasetId") String datasetId, Pageable pageable);
+
+    long countByDatasetId(String datasetId);
 }
