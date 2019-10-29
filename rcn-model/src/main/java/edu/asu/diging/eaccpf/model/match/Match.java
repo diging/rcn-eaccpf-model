@@ -44,4 +44,12 @@ public interface Match {
 
     void setJobId(String jobId);
 
+    void setLuceneScore(float luceneScore);
+
+    float getLuceneScore();
+
+    float getOverallScore();
+
+    void setOverallScore(float overallScore);
+
 }

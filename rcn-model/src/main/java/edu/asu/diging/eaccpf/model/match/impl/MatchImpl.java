@@ -29,6 +29,9 @@ public class MatchImpl implements Match {
     private String compareDatasetId;
     private String compareRecordId;
     
+    private float luceneScore;
+    private float overallScore;
+    
     private float certainty;
     
     private OffsetDateTime matchedOn;
@@ -118,6 +121,26 @@ public class MatchImpl implements Match {
     @Override
     public void setCompareRecordId(String compareRecordId) {
         this.compareRecordId = compareRecordId;
+    }
+
+    @Override
+    public float getLuceneScore() {
+        return luceneScore;
+    }
+
+    @Override
+    public void setLuceneScore(float luceneScore) {
+        this.luceneScore = luceneScore;
+    }
+
+    @Override
+    public float getOverallScore() {
+        return overallScore;
+    }
+
+    @Override
+    public void setOverallScore(float overallScore) {
+        this.overallScore = overallScore;
     }
 
     /* (non-Javadoc)
