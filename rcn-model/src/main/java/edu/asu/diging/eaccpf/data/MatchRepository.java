@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
+import edu.asu.diging.eaccpf.model.match.Match;
 import edu.asu.diging.eaccpf.model.match.impl.MatchImpl;
 
 public interface MatchRepository extends PagingAndSortingRepository<MatchImpl, String>  {
@@ -19,6 +20,6 @@ public interface MatchRepository extends PagingAndSortingRepository<MatchImpl, S
     @Query("select count(distinct m.baseRecordId) from MatchImpl m where m.jobId = :jobId")
     Integer countMatchedRecordIds(@Param("jobId") String jobId);
     
-    MatchImpl findFirstByBaseRecordIdOrderByOverallScoreDesc(String baseRecordId);
+    Match findFirstByBaseRecordIdOrderByOverallScoreDesc(String baseRecordId);
 }
 

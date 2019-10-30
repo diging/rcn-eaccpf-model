@@ -31,6 +31,8 @@ public class MatchImpl implements Match {
     
     private float luceneScore;
     private float overallScore;
+    private float nameScore;
+    private float dateScore;
     
     private float certainty;
     
@@ -141,6 +143,26 @@ public class MatchImpl implements Match {
     @Override
     public void setOverallScore(float overallScore) {
         this.overallScore = overallScore;
+    }
+
+    @Override
+    public float getNameScore() {
+        return nameScore;
+    }
+
+    @Override
+    public void setNameScore(float nameScore) {
+        this.nameScore = nameScore;
+    }
+
+    @Override
+    public float getDateScore() {
+        return dateScore;
+    }
+
+    @Override
+    public void setDateScore(float dateScore) {
+        this.dateScore = dateScore;
     }
 
     /* (non-Javadoc)

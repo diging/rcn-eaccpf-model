@@ -52,4 +52,12 @@ public interface Match {
 
     void setOverallScore(float overallScore);
 
+    void setDateScore(float dateScore);
+
+    float getDateScore();
+
+    void setNameScore(float nameScore);
+
+    float getNameScore();
+
 }
