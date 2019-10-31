@@ -1,4 +1,4 @@
-# EAC-CPF Model for RCN Authority 
+# EAC-CPF Model for RCN Authority Matching
 
 ![Maven Central](https://img.shields.io/maven-central/v/edu.asu.diging/rcn-model?color=blue)
 
