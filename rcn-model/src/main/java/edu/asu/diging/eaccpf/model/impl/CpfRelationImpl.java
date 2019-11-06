@@ -33,6 +33,7 @@ public class CpfRelationImpl implements CpfRelation {
     
     private String cpfRelationType;
     private String lastDateTimeVerified;
+    private String href;
     
     @OneToMany(targetEntity=DateImpl.class, cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Date> dates;
@@ -101,6 +102,16 @@ public class CpfRelationImpl implements CpfRelation {
     @Override
     public void setLastDateTimeVerified(String lastDateTimeVerified) {
         this.lastDateTimeVerified = lastDateTimeVerified;
+    }
+
+    @Override
+    public String getHref() {
+        return href;
+    }
+
+    @Override
+    public void setHref(String href) {
+        this.href = href;
     }
 
     /* (non-Javadoc)
