@@ -60,4 +60,8 @@ public interface Match {
 
     float getNameScore();
 
+    void setBioScore(float bioScore);
+
+    float getBioScore();
+
 }
