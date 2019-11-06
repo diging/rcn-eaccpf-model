@@ -40,4 +40,8 @@ public interface CpfRelation {
 
     void setRelationEntries(List<RelationEntry> relationEntries);
 
+    void setHref(String href);
+
+    String getHref();
+
 }

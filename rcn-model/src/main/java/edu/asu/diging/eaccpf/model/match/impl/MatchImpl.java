@@ -33,6 +33,7 @@ public class MatchImpl implements Match {
     private float overallScore;
     private float nameScore;
     private float dateScore;
+    private float bioScore;
     
     private float certainty;
     
@@ -163,6 +164,16 @@ public class MatchImpl implements Match {
     @Override
     public void setDateScore(float dateScore) {
         this.dateScore = dateScore;
+    }
+
+    @Override
+    public float getBioScore() {
+        return bioScore;
+    }
+
+    @Override
+    public void setBioScore(float bioScore) {
+        this.bioScore = bioScore;
     }
 
     /* (non-Javadoc)
